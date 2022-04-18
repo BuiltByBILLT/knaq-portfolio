@@ -22,10 +22,12 @@ export const Header = () => {
     const history = useHistory()
 
 
+    if (location.pathname === "/") return null
+    if (location.pathname === "/promo") return null
+
     if (location.pathname === "/login") return null
     if (location.pathname === "/forgot") return null
     if (location.pathname === "/signup") return null
-    if (location.pathname === "/promo") return null
     if (location.pathname === "/privacy") return null
     if (location.pathname === "/terms") return null
     if (location.pathname === "/faq") return null

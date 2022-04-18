@@ -1,19 +1,18 @@
 import Header from "./components/Header";
 import ProtectedRoute from './components/ProtectedRoute'
-import Home from "./screens/HomeScreen";
-import Profile from "./screens/ProfileScreen";
-import Rooms from "./screens/RoomsScreen";
-import Explore from "./screens/ExploreScreen";
-import Notifications from "./screens/NotificationsScreen";
-import Wallet from "./screens/WalletScreen";
-import NotFound from "./screens/NotFoundScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import RoomsScreen from "./screens/RoomsScreen";
+import ExploreScreen from "./screens/ExploreScreen";
+import NotificationsScreen from "./screens/NotificationsScreen";
+import WalletScreen from "./screens/WalletScreen";
+import NotFoundScreen from "./screens/NotFoundScreen";
 import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import 'animate.css'
-import Login from "./screens/LoginScreen";
-import Signup from "./screens/SignupScreen";
-import Forgot from "./screens/ForgotScreen";
-import User from "./screens/UserScreen";
-import UploadPhoto from "./components/UploadPhoto";
+import LoginScreen from "./screens/LoginScreen";
+import SignupScreen from "./screens/SignupScreen";
+import ForgotScreen from "./screens/ForgotScreen";
+import UserScreen from "./screens/UserScreen";
 import TestScreen from "./screens/TestScreen";
 import PromoScreen from "./screens/PromoScreen";
 import PrivacyScreen from "./screens/PrivacyScreen";
@@ -27,23 +26,23 @@ function App() {
       <main>
         <Switch>
           {/* <ProtectedRoute path="/" exact component={Home} /> */}
-          <Route path="/promo" exact component={PromoScreen} />
+          <Route path="/home" exact component={HomeScreen} />
           <Route path="/privacy" exact component={PrivacyScreen} />
           <Route path="/terms" exact component={TermsScreen} />
           <Route path="/faq" exact component={FaqScreen} />
-          <ProtectedRoute path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/forgot" exact component={Forgot} />
-          <ProtectedRoute path="/profile" exact component={Profile} />
-          <ProtectedRoute path="/user/:id" exact component={User} />
-          <ProtectedRoute path="/rooms" exact component={Rooms} />
-          <ProtectedRoute path="/explore" exact component={Explore} />
-          <ProtectedRoute path="/notifications" exact component={Notifications} />
-          <ProtectedRoute path="/wallet" exact component={Wallet} />
-          {/* <Route path="/test" exact component={UploadPhoto} /> */}
+          <ProtectedRoute path="/" exact component={PromoScreen} />
+          {/* <ProtectedRoute path="/" exact component={Home} /> */}
+          <Route path="/login" exact component={LoginScreen} />
+          <Route path="/signup" exact component={SignupScreen} />
+          <Route path="/forgot" exact component={ForgotScreen} />
+          <ProtectedRoute path="/profile" exact component={ProfileScreen} />
+          <ProtectedRoute path="/user/:id" exact component={UserScreen} />
+          <ProtectedRoute path="/rooms" exact component={RoomsScreen} />
+          <ProtectedRoute path="/explore" exact component={ExploreScreen} />
+          <ProtectedRoute path="/notifications" exact component={NotificationsScreen} />
+          <ProtectedRoute path="/wallet" exact component={WalletScreen} />
           <ProtectedRoute path="/test" exact component={TestScreen} />
-          <Route><NotFound /></Route>
+          <Route><NotFoundScreen /></Route>
         </Switch>
       </main>
       {/* <Footer /> */}

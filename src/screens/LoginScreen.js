@@ -27,7 +27,8 @@ const Login = () => {
         onSuccess: (data) => {
             console.log(data.data)
             userUpdate({ type: "LOGIN", payload: data.data.data })
-            history.push('/')
+            // history.push('/')
+            history.push('/home')
         },
         onError: (error) => {
             setError(error.response && error.response.data.message

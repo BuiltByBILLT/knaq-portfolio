@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
 import { Button, ButtonGroup, Col, Dropdown, Form, Image, Row } from 'react-bootstrap'
 import { UserContext, UserContextUpdate } from '../contexts/UserContext'
+import { useHistory } from 'react-router-dom'
 
 const Logo = () => {
     console.log("logo")
 
     const user = useContext(UserContext)
     const userUpdate = useContext(UserContextUpdate)
-
+    const history = useHistory()
     const logoutHandler = () => {
         userUpdate({ type: "LOGOUT" })
+        history.push('/login')
     }
 
 

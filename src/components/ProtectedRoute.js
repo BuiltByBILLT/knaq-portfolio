@@ -10,8 +10,8 @@ function ProtectedRoute({ component: Component, ...rest }) {
             render={(props) =>
                 user.id
                     ? <Component {...props} />
-                    // : <Redirect to={`/login?redirect=${props.history.location.pathname}`} />
-                    : <Redirect to={`/promo`} />
+                    : <Redirect to={`/login?redirect=${props.history.location.pathname}`} />
+                // : <Redirect to={`/`} />
             }
         />
     );
