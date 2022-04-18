@@ -25,13 +25,12 @@ function App() {
       <Header />
       <main>
         <Switch>
+          <Route path="/" exact component={PromoScreen} />
           {/* <ProtectedRoute path="/" exact component={Home} /> */}
           <Route path="/home" exact component={HomeScreen} />
           <Route path="/privacy" exact component={PrivacyScreen} />
           <Route path="/terms" exact component={TermsScreen} />
           <Route path="/faq" exact component={FaqScreen} />
-          <ProtectedRoute path="/" exact component={PromoScreen} />
-          {/* <ProtectedRoute path="/" exact component={Home} /> */}
           <Route path="/login" exact component={LoginScreen} />
           <Route path="/signup" exact component={SignupScreen} />
           <Route path="/forgot" exact component={ForgotScreen} />
