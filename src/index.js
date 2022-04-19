@@ -6,7 +6,7 @@ import App from './App';
 import { NavContextProvider } from './contexts/NavContext.js';
 import { UserContextProvider } from './contexts/UserContext.js';
 import { QueryClient, QueryClientProvider } from 'react-query'
-
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,6 +18,8 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
+    <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+
     <NavContextProvider>
       <UserContextProvider>
         <App />
