@@ -67,13 +67,14 @@ export default class UploadPhoto extends PureComponent {
 
     async makeClientCrop(crop) {
         if (this.imageRef && crop.width && crop.height) {
-            const croppedImageUrl = await this.getCroppedImg(
+            const { croppedImageUrl, croppedImageBlob } = await this.getCroppedImg(
                 this.imageRef,
                 crop,
                 'newFile.jpeg'
             );
             this.setState({ croppedImageUrl });
             this.props.setCropUrl(croppedImageUrl)
+            this.props.setCropBlob(croppedImageBlob)
         }
     }
 
@@ -115,7 +116,7 @@ export default class UploadPhoto extends PureComponent {
                     this.fileUrl = window.URL.createObjectURL(blob);
                     // console.log(this.fileUrl)
                     // console.log(blob)
-                    resolve(this.fileUrl);
+                    resolve({ croppedImageUrl: this.fileUrl, croppedImageBlob: blob });
                 },
                 'image/jpeg',
                 1
@@ -124,7 +125,7 @@ export default class UploadPhoto extends PureComponent {
     }
 
     render() {
-        const { crop, croppedImageUrl, src } = this.state;
+        const { crop, src } = this.state;
 
         return (
             <div style={{ backgroundColor: "#555", width: "calc(100% + 1px)" }}>

@@ -18,9 +18,11 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
 
     const [showAvatar, setShowAvatar] = useState(false);
     const [cropAvatarUrl, setCropAvatarUrl] = useState("")
+    const [cropAvatarBlob, setCropAvatarBlob] = useState("")
 
     const [showBackground, setShowBackground] = useState(false);
     const [cropBackgroundUrl, setCropBackgroundUrl] = useState("")
+    const [cropBackgroundBlob, setCropBackgroundBlob] = useState("")
 
     const myModal = useRef(null)
 
@@ -31,8 +33,8 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
         formData.append('displayName', form.displayName)
         formData.append('description', form.description)
         formData.append('nsfwFilter', form.nsfwFilter ? "true" : "")
-        // formData.append('avatar', avatarBlob?)
-        // formData.append('avatar', form.avatar)
+        if (cropAvatarBlob) formData.append('avatar', cropAvatarBlob)
+        if (cropBackgroundBlob) formData.append('backgroundImg', cropBackgroundBlob)
         console.log(form.avatar)
         return axios.put(`https://api.knaqapp.com/api/me`, formData,
             { headers: { Authorization: `Bearer ${user.token}` } })
@@ -41,7 +43,7 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
             console.log(data.data)
             setSuccess(`Profile Update Success`)
             setError('')
-            refetchProfile()
+            refetchProfile() // Invalidate
         },
         onError: (error) => {
             setError(error.response && error.response.data.message
@@ -69,10 +71,10 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
         <Modal show={show} onHide={closeHandler} >
             <div id='wholeModal' >
                 <UploadPhotoModal show={showAvatar} setShow={setShowAvatar}
-                    setCropUrl={setCropAvatarUrl} cropType="circle"
+                    setCropUrl={setCropAvatarUrl} setCropBlob={setCropAvatarBlob} cropType="circle"
                 />
                 <UploadPhotoModal show={showBackground} setShow={setShowBackground}
-                    setCropUrl={setCropBackgroundUrl} cropType="noCrop"
+                    setCropUrl={setCropBackgroundUrl} setCropBlob={setCropBackgroundBlob} cropType="noCrop"
                 />
                 {(showAvatar || showBackground) &&
                     <div style={{
@@ -142,12 +144,12 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
                                 />
                             </Form.Group>
                             {/* <Form.File
-                            accept='image/*'
-                            id="profile-image"
-                            label={form.avatar ? form.avatar.name : "No File Selected"}
-                            custom
-                            onChange={(e) => setForm({ ...form, avatar: e.target.files[0] })}
-                        /> */}
+                                accept='image/*'
+                                id="profile-image"
+                                label={form.avatar ? form.avatar.name : "No File Selected"}
+                                custom
+                                onChange={(e) => setForm({ ...form, avatar: e.target.files[0] })}
+                            /> */}
                         </Form>
                     </div>
 

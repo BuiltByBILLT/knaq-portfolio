@@ -73,7 +73,7 @@ const ProfileBanner = ({ id }) => {
             position: "relative"
         }}>
             <div style={{ position: "absolute", zIndex: "10", right: "10px", top: "10px" }}>
-                <ProfileDropdown profile={profile} />
+                {id !== user.id && <ProfileDropdown profile={profile} />}
             </div>
 
             <Container>

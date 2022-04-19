@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import '../upload.css'
 import UploadPhoto from './UploadPhoto';
-const UploadPhotoModal = ({ show, setShow, setCropUrl, cropType }) => {
+const UploadPhotoModal = ({ show, setShow, setCropUrl, setCropBlob, cropType }) => {
 
     const [file, setFile] = useState(null)
     // const [cropUrl, setCropUrl] = useState("")
@@ -32,7 +32,7 @@ const UploadPhotoModal = ({ show, setShow, setCropUrl, cropType }) => {
                             <p className='my-auto'>Drag your files here or click in this area!</p>
                         </form>}
                 </div>
-                <UploadPhoto file={file || ""} setCropUrl={setCropUrl}
+                <UploadPhoto file={file || ""} setCropUrl={setCropUrl} setCropBlob={setCropBlob}
                     circleCrop={cropType == "circle"} noCrop={cropType == "noCrop"} />
             </div>
             <Modal.Footer>
