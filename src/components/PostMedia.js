@@ -19,7 +19,10 @@ const PostMedia = ({ post }) => {
                 {(post.images && post.images[0])
                     ? <img src={post.images && post.images[0]} style={{ width: "100%" }}></img >
                     : (post.video && post.videoScreenshot)
-                        ? <Image src={post.videoScreenshot} style={{ width: "100%", objectFit: "contain" }} fluid />
+                        // ? <Image src={post.videoScreenshot} style={{ width: "100%", objectFit: "contain" }} fluid />
+                        ? <video controls>
+                            <source src={post.video} type="video/webm"></source>
+                        </video>
                         : (post.text)
                             ? <div style={{ whiteSpace: "pre-wrap", fontSize: "36px", }}>{post.text}</div>
                             : null
