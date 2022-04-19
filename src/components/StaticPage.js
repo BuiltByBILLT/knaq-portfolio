@@ -14,7 +14,7 @@ const StaticPage = ({ children }) => {
     return (
         <div>
             <Navbar bg="light" expand="lg" style={{ height: "170px", border: "none" }} className="py-0">
-                <LinkContainer to="/promo" style={{ height: "100%" }}>
+                <LinkContainer to="/" style={{ height: "100%" }}>
                     <Navbar.Brand style={{ height: "100%" }}>
                         <Image src="/images/Knaq-Logo-Final.png"
                             className="" style={{ height: "100%" }} />

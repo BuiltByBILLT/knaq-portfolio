@@ -7,15 +7,15 @@ const TermsScreen = () => {
     return (
         <StaticPage>
             <Container className="p-5">
-                <h1>Terms of service</h1>
-                <p><strong>Agreement between User and ChitChatSV LLC, Knaq App, and Knaqapp.com (formerly chitchatme.io)</strong></p>
+                <h1>Terms of Service</h1>
+                <p><strong>Agreement between User and Knaq Technologies, Inc., Knaq App, and Knaqapp.com</strong></p>
                 <p></p>
                 <p><strong>1.</strong> <strong>Definitions</strong></p>
                 <p>In these Terms following terms have the following meanings:</p>
                 <p><strong>“BSV” </strong>is the Bitcoin SV Blockchain</p>
                 <p><strong>“BSV Tokens”</strong> are tokens issued on BSV and the method of payment used for Interactions.</p>
                 <p><strong>“Content Creator”</strong> is a User who uploads Content on the Website to be viewed by other Users;</p>
-                <p><strong>“Company”</strong> (also referred to as “<strong>the Company</strong>”, “<strong>Us</strong>”, “<strong>Our</strong>”, or “<strong>We</strong>”) refers to ChitChatSV LLC located in the state of Delaware at 300 Delaware Avenue Suite 210-A, Wilmington, DE 19801;</p>
+                <p><strong>“Company”</strong> (also referred to as “<strong>the Company</strong>”, “<strong>Us</strong>”, “<strong>Our</strong>”, or “<strong>We</strong>”) refers to Knaq Technologies, Inc. located in the state of Delaware at 300 Delaware Avenue Suite 210-A, Wilmington, DE 19801;</p>
                 <p><strong>“Commission”</strong> is an amount of BSV Tokens paid by Viewers to the Content Creator for any Interaction;</p>
                 <p><strong>“Interaction”</strong> is any offerings by a Content Creator that is hosted by Knaq where a Commission may be earned. This includes but is not limited to tips, subscriptions, referrals, and chats.</p>
                 <p><strong>“Post” </strong>(or “Posting”) is any and all text, photos, videos, or other material uploaded to the Website by a Content Creator;</p>

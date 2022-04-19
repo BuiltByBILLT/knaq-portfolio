@@ -8,7 +8,7 @@ const PrivacyScreen = () => {
         <StaticPage>
             <Container className="p-5">
                 <h1>Privacy Policy</h1>
-                <p><strong>ChitChatSV, LLC</strong></p>
+                <p><strong>Knaq Technologies Inc.</strong></p>
                 <p >Last Updated: May 10th, 2021</p>
                 <p></p>
                 <p >This Privacy Policy details how we collect, use and disclose any personal data that is provided to us when you use our Service. It also describes the choices available to you regarding the use of, your access to, and how to update and correct your personal information.</p>
@@ -18,9 +18,9 @@ const PrivacyScreen = () => {
                 <p >The following words have been defined for the purposes of this Privacy Policy:</p>
                 <p ><strong>Account </strong>means a unique user profile created for You to access the Service provided by the Company.</p>
                 <p ><strong>Affiliate </strong>means any entity that holds a shareholder stake in the Company or any subsidiary of the Company.</p>
-                <p ><strong>Company</strong> (also referred to as “<strong>the Company</strong>”, “<strong>Us</strong>”, “<strong>Our</strong>”, or “<strong>We</strong>”) refers to ChitChatSV LLC located in the state of Delaware at 300 Delaware Avenue Suite 210-A, Wilmington, DE 19801.</p>
+                <p ><strong>Company</strong> (also referred to as “<strong>the Company</strong>”, “<strong>Us</strong>”, “<strong>Our</strong>”, or “<strong>We</strong>”) refers to Knaq Technologies Inc. located in the state of Delaware at 300 Delaware Avenue Suite 210-A, Wilmington, DE 19801.</p>
                 <p ><strong>Content Creator </strong>means any User who create and share content through the Service.</p>
-                <p ><strong>Service</strong> (also referred to as “the Website”, “Product”, or “App”) refers to the ChitChat mobile application.</p>
+                <p ><strong>Service</strong> (also referred to as “the Website”, “Product”, or “App”) refers to the Knaq mobile application.</p>
                 <p ><strong>You</strong> (also referred to as “User”) means the individual that is currently accessing or using the Service.</p>
                 <p></p>
                 <p ><strong>Children’s Privacy</strong></p>
