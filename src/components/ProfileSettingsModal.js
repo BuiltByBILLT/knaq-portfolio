@@ -116,13 +116,13 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
                             </Col>
                         </Row>
 
-                        <Form className="px-3">
-                            <Form.Group>
+                        <Form className="px-3 mt-4">
+                            {/* <Form.Group>
                                 <Form.Label>Paymail</Form.Label>
                                 <Form.Control placeholder='Paymail' value={form.paymail || ""} disabled
                                     onChange={(e) => { setForm({ ...form, paymail: e.target.value }) }}
                                 />
-                            </Form.Group>
+                            </Form.Group> */}
                             <Form.Group>
                                 <Form.Label>Display Name</Form.Label>
                                 <Form.Control placeholder='Display Name' value={form.displayName || ""}

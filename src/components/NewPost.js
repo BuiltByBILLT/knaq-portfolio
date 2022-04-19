@@ -4,6 +4,7 @@ import { UserContext } from '../contexts/UserContext'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 import UploadPhotoModal from './UploadPhotoModal'
+import ComingSoon from './ComingSoon'
 
 const NewPost = ({ refetchFree, refetchSub }) => {
 
@@ -82,14 +83,20 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                 <Col xs="auto" className="px-1 my-auto ml-auto">
                     <p className="mb-0">Sub-Only</p>
                 </Col>
-                <Col xs="auto" className="px-1 my-auto">
-                    <Form.Check
-                        type="switch"
-                        id="subonlyCheck"
-                        checked={checked}
-                        onChange={(e) => setChecked(!checked)}
-                    />
-                </Col>
+
+                <ComingSoon direction='bottom'>
+                    <Col xs="auto" className="px-1 my-auto">
+                        <div>
+                            <Form.Check
+                                type="switch"
+                                id="subonlyCheck"
+                                checked={checked}
+                                onChange={(e) => setChecked(!checked)}
+                                disabled
+                            />
+                        </div>
+                    </Col>
+                </ComingSoon>
                 <Col xs="auto" className="border-left">
                     <Button size="sm"
                         disabled={postText.length === 0 || isLoading}

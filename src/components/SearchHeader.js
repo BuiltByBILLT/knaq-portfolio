@@ -20,8 +20,9 @@ const SearchHeader = () => {
                         />
                     </div>
                 </Form>
-                <i className="far fa-bell fa-lg" style={{ position: "absolute", right: 5, top: "10px" }}
-                    onClick={() => setShowSearch(true)} />
+                {/* <i className="far fa-bell fa-lg" style={{ position: "absolute", right: 5, top: "10px" }}
+                // onClick={() => {}} 
+                /> */}
 
             </Col>
             <SearchPeopleModal show={showSearch} setShow={setShowSearch} />

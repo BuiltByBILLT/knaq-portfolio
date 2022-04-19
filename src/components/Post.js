@@ -10,6 +10,7 @@ import ShareModal from './ShareModal'
 import PostDropdown from './PostDropdown'
 import PostMedia from './PostMedia'
 import TipModal from './TipModal'
+import ComingSoon from './ComingSoon'
 
 
 const Post = ({ hideTop, post }) => {
@@ -90,9 +91,13 @@ const Post = ({ hideTop, post }) => {
                 </Col>
 
                 <Col xs="auto" className="my-auto ml-auto">
-                    <i className="fas fa-coins fa-lg"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => setShowTip(true)}></i>
+                    <ComingSoon>
+                        <i className="fas fa-coins fa-lg"
+                            style={{ cursor: "pointer" }}
+                        // onClick={() => setShowTip(true)}
+                        >
+                        </i>
+                    </ComingSoon>
                 </Col>
             </Row>
 

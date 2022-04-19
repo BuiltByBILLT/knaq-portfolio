@@ -7,6 +7,7 @@ import ListPeopleModal from './ListPeopleModal';
 import SubscribeModal from './SubscribeModal'
 import ProfileSettingsModal from './ProfileSettingsModal'
 import ProfileDropdown from './ProfileDropdown'
+import ComingSoon from './ComingSoon'
 
 
 const ProfileBanner = ({ id }) => {
@@ -115,8 +116,12 @@ const ProfileBanner = ({ id }) => {
                                         </Button>
                                     </Col>
                                     <Col>
+
+                                        <ComingSoon>
+                                            <div style={{ position: "absolute", width: "100%", height: "100%", zIndex: "5" }}></div>
+                                        </ComingSoon>
                                         <Button size="sm" block variant={profile.subExpireAt ? "outline-success" : "outline-info"}
-                                            onClick={subscribeHandler} disabled={false}>
+                                            onClick={subscribeHandler} disabled>
                                             {profile.subExpireAt ? "Subscribed" : "Subscribe"}
                                         </Button>
                                     </Col>

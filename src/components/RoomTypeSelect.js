@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Container, Row, Col, Nav, Navbar, Form, Button, InputGroup, Image, Dropdown } from 'react-bootstrap'
 import { NavContext, NavContextUpdate } from '../contexts/NavContext'
+import ComingSoon from './ComingSoon'
 
 
 const RoomTypeSelect = () => {
@@ -21,11 +22,17 @@ const RoomTypeSelect = () => {
                 <i className="fas fa-caret-down"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu className="p-0">
-                <Dropdown.Item className="p-2"
-                    style={{ fontWeight: 800, fontSize: "16px", width: "160px" }}
-                    onClick={switchHandler}>
-                    {nav.roomType !== "CHAT" ? "Chat Rooms" : "Voice Rooms"}
-                </Dropdown.Item>
+                <div>
+                    <ComingSoon direction="right">
+                        <div style={{ position: "absolute", width: "100%", height: "100%", zIndex: "5" }}></div>
+                    </ComingSoon>
+
+                    <Dropdown.Item className="p-2"
+                        style={{ fontWeight: 800, fontSize: "16px", width: "160px" }}
+                        onClick={switchHandler} disabled>
+                        {nav.roomType !== "CHAT" ? "Chat Rooms" : "Voice Rooms"}
+                    </Dropdown.Item>
+                </div>
             </Dropdown.Menu>
         </Dropdown>
     )

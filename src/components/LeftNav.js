@@ -1,13 +1,14 @@
 import React from 'react'
 import { Col, Nav, Navbar, Row } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import ComingSoon from './ComingSoon'
 
 
 const LeftNav = () => {
     return (
         <Navbar variant="light" className="py-0 mt-2 mb-5">
             <Nav defaultActiveKey="/" className="flex-column">
-                <LinkContainer exact to="/">
+                <LinkContainer exact to="/home">
                     <Nav.Link className="my-2" active={false}>
                         <Row>
                             <Col xs={2}>
@@ -67,18 +68,23 @@ const LeftNav = () => {
                         </Row>
                     </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/wallet">
-                    <Nav.Link className="my-2" active={false}>
-                        <Row>
-                            <Col xs={2}>
-                                <i className="fas fa-wallet fa-lg"></i>
-                            </Col>
-                            <Col>
-                                Wallet
-                            </Col>
-                        </Row>
-                    </Nav.Link>
-                </LinkContainer>
+
+                <ComingSoon direction='bottom'>
+                    <div>
+                        <LinkContainer to="/wallet">
+                            <Nav.Link className="my-2" active={false} disabled>
+                                <Row>
+                                    <Col xs={2}>
+                                        <i className="fas fa-wallet fa-lg"></i>
+                                    </Col>
+                                    <Col>
+                                        Wallet
+                                    </Col>
+                                </Row>
+                            </Nav.Link>
+                        </LinkContainer>
+                    </div>
+                </ComingSoon>
             </Nav>
         </Navbar>
     )

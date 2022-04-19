@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { UserContext } from '../contexts/UserContext';
+import ComingSoon from './ComingSoon';
 import Post from './Post';
 
 const PostTabs = ({ id }) => {
@@ -45,9 +46,12 @@ const PostTabs = ({ id }) => {
                     {free.map((post) => (<Post key={post.id} hideTop={false} post={post} />))}
                 </Tab>
 
-                <Tab eventKey="subOnly" title="Sub-Only" >
+                {/* <ComingSoon> */}
+
+                <Tab eventKey="subOnly" title="Sub-Only (Coming Soon)" disabled>
                     {paid.map((post) => (<Post key={post.id} hideTop={false} post={post} />))}
                 </Tab>
+                {/* </ComingSoon> */}
             </Tabs>
         </div>
     );

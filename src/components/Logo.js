@@ -30,8 +30,8 @@ const Logo = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                <Dropdown.Item >Profile</Dropdown.Item>
-                <Dropdown.Item >Profile Settings</Dropdown.Item>
+                {/* <Dropdown.Item >Profile</Dropdown.Item> */}
+                <Dropdown.Item onClick={() => history.push('/profile')}>Profile Settings</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Header >
                     <Row>

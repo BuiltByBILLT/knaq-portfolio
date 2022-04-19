@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Image, Nav, Navbar, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useHistory } from 'react-router-dom'
+import ComingSoon from './ComingSoon'
 
 
 const StaticPage = ({ children }) => {
@@ -22,16 +23,12 @@ const StaticPage = ({ children }) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <OverlayTrigger
-                            key={"left"}
-                            placement={"left"}
-                            overlay={<Tooltip id='coming soon'>Coming Soon!</Tooltip>}
-                        >
+                        <ComingSoon direction='left'>
                             <button className="m-0 px-3" style={{ color: "grey", border: "none", backgroundColor: "#0000" }}
                                 onClick={() => { setClicks(clicks + 1) }}>
                                 Login
                             </button>
-                        </OverlayTrigger>
+                        </ComingSoon>
 
                         <Nav.Link active={false} target="_blank" href="http://www.instagram.com/knaqapp"><i className="px-3 fa-2x fab fa-instagram"></i></Nav.Link>
                         <Nav.Link active={false} target="_blank" href="http://www.twitter.com/knaqapp"><i className="px-3 fa-2x fab fa-twitter"></i></Nav.Link>

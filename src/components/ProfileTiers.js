@@ -4,6 +4,7 @@ import { UserContext, UserContextUpdate } from '../contexts/UserContext'
 import { useMutation } from 'react-query'
 import Loader from './Loader'
 import axios from 'axios'
+import ComingSoon from './ComingSoon'
 
 const ProfileTiers = ({ profile, refetchProfile }) => {
 
@@ -91,10 +92,16 @@ const ProfileTiers = ({ profile, refetchProfile }) => {
                 </Col>
                 <Col xs="auto" className="pr-0">
                     {!edit
-                        ? <Button size="sm" variant='secondary'
-                            onClick={() => { setEdit(true) }}>
-                            <i className="fas fa-wrench fa-lg" />
-                        </Button>
+                        ?
+                        <div>
+                            <ComingSoon>
+                                <div style={{ position: "absolute", width: "100%", height: "100%", zIndex: "5" }}></div>
+                            </ComingSoon>
+                            <Button size="sm" variant='secondary'
+                                onClick={() => { setEdit(true) }} disabled>
+                                <i className="fas fa-wrench fa-lg" />
+                            </Button>
+                        </div>
                         : <Button size="sm" variant='secondary'
                             onClick={saveHandler} disabled={isLoading}>
                             <i className="fas fa-check fa-lg " />
