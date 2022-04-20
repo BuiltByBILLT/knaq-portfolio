@@ -65,8 +65,7 @@ const Post = ({ hideTop, post }) => {
                     </LinkContainer>
                     <LinkContainer to={`/user/${post.user.id}`} style={{ cursor: "pointer" }}>
                         <Col xs='auto' className="my-auto">
-                            {/* <Form.Control as="textarea" rows={3}></Form.Control> */}
-                            <p className="mb-0"><strong>{post.user.username}</strong></p>
+                            <p className="mb-0"><strong>{post.user.displayName}</strong></p>
                         </Col>
                     </LinkContainer>
                     <Col xs="auto" className="my-auto ml-auto">
