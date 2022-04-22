@@ -11,11 +11,14 @@ import PostDropdown from './PostDropdown'
 import PostMedia from './PostMedia'
 import TipModal from './TipModal'
 import ComingSoon from './ComingSoon'
+import PostGraphicOverlay from './PostGraphicOverlay'
+import PostSubscribeOverlay from './PostSubscribeOverlay'
 
 
 const Post = ({ hideTop, post }) => {
     // console.log(post)
     const user = useContext(UserContext)
+
     const textOnly = !post.images && !post.video
     const [like, setLike] = useState(!!post.like)
     const [likes, setLikes] = useState(post.totalLikes)
@@ -74,7 +77,15 @@ const Post = ({ hideTop, post }) => {
                 </Row>
             }
 
-            <PostMedia post={post} />
+            <div style={{ position: "relative", backgroundColor: "#EEE", paddingTop: "100%" }}>
+                {/* <div style={{ position: "relative", paddingTop: "calc(100% + 20px)" }}> */}
+                {user.nsfwFilter && post.nsfw && <PostGraphicOverlay />}
+                {post.subOnly && post.isSubbed && <PostSubscribeOverlay post={post} />}
+                <div className=''
+                    style={{ width: "100%", height: "100%", position: "absolute", top: "0" }}>
+                    <PostMedia post={post} />
+                </div>
+            </div>
 
 
             <Row className="my-2">
@@ -116,7 +127,7 @@ const Post = ({ hideTop, post }) => {
             </Row> */}
 
             <p className="text-muted mb-0">{moment(post.updatedAt).fromNow()}</p>
-        </div>
+        </div >
     )
 }
 
