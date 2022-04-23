@@ -64,9 +64,6 @@ const ProfileSettingsModal = ({ show, setShow, refetchProfile, profile }) => {
         } else setForm({ ...user })
     }, [show])
 
-    useEffect(() => { console.log("cropUrl:", cropAvatarUrl) }, [cropAvatarUrl])
-
-
     return (
         <Modal show={show} onHide={closeHandler} >
             <div id='wholeModal' >
