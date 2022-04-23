@@ -20,7 +20,7 @@ const PostMedia = ({ post }) => {
             modules={[Pagination, Navigation]}
         >
             {post.images.map(image => (
-                <SwiperSlide><img src={image} style={{ width: "100%" }}></img ></SwiperSlide>
+                <SwiperSlide key={image}><img src={image} style={{ width: "100%" }}></img ></SwiperSlide>
             ))}
         </Swiper>
     )
