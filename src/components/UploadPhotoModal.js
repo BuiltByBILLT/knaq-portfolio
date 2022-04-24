@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
-import '../upload.css'
 import UploadPhoto from './UploadPhoto';
+import '../upload.css'
+
 const UploadPhotoModal = ({ show, setShow, setCropUrl, setCropBlob, cropType }) => {
 
     const [file, setFile] = useState(null)
