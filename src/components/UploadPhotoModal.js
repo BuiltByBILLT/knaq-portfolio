@@ -25,7 +25,7 @@ const UploadPhotoModal = ({ show, setShow, setCropUrl, setCropBlob, cropType }) 
                 <Modal.Title>Upload Photo</Modal.Title>
             </Modal.Header>
             <div id="bodyContainer" style={{ paddingTop: `${file ? "0px" : "50%"}`, position: "relative" }}>
-                <div id='modalBody' className="px-5 upload" style={{ position: "absolute", height: "100%", width: "100%", top: 0 }}>
+                <div id='modalBody' className="px-5 text-center upload" style={{ position: "absolute", height: "100%", width: "100%", top: 0 }}>
                     {!file &&
                         <form className="d-flex" style={{ height: "100%", position: "relative" }}>
                             <input type="file" accept="image/*" style={{ position: "absolute" }}

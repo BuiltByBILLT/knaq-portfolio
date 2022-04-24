@@ -108,14 +108,11 @@ export default class UploadPhoto extends PureComponent {
                 (blob) => {
                     if (!blob) {
                         reject(new Error('Canvas is empty'));
-                        // console.error('Canvas is empty');
                         return;
                     }
                     blob.name = fileName;
                     window.URL.revokeObjectURL(this.fileUrl);
                     this.fileUrl = window.URL.createObjectURL(blob);
-                    // console.log(this.fileUrl)
-                    // console.log(blob)
                     resolve({ croppedImageUrl: this.fileUrl, croppedImageBlob: blob });
                 },
                 'image/jpeg',
@@ -130,7 +127,7 @@ export default class UploadPhoto extends PureComponent {
         return (
             <div style={{ backgroundColor: "#555", width: "calc(100% + 1px)" }}>
                 {src && (
-                    <div className="m-auto p-5" style={{ width: '100%' }}>
+                    <div className="m-auto p-5 text-center" style={{ width: '100%' }}>
                         <ReactCrop
                             src={src}
                             crop={crop}

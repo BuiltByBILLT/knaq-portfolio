@@ -80,8 +80,8 @@ const Post = ({ hideTop, post }) => {
             <div style={{ position: "relative", backgroundColor: "#EEE", paddingTop: "100%" }}>
                 {user.nsfwFilter && post.nsfw && <PostGraphicOverlay />}
                 {post.subOnly && post.isSubbed && <PostSubscribeOverlay post={post} />}
-                <div className='d-flex align-items-center justify-content-center'
-                    style={{ width: "100%", height: "100%", position: "absolute", top: "0", overflow: "hidden" }}>
+                <div className='d-flex'
+                    style={{ width: "100%", height: "100%", position: "absolute", top: "0" }}>
                     <PostMedia post={post} />
                 </div>
             </div>
@@ -113,17 +113,6 @@ const Post = ({ hideTop, post }) => {
             <p className="mb-2"><strong>{likes} Likes</strong></p>
 
             {!textOnly && <p className="mb-2"><strong>{post.user.username} </strong>{post.text}</p>}
-
-            {/* <Row className="py-2">
-                <Col xs="auto" className="pr-0">
-                    <img src={user.avatarUrl || "/images/Logo.png"}
-                        style={{ height: "30px", width: "30px", borderRadius: "100%" }}
-                    />
-                </Col>
-                <Col className="my-auto">
-                    <p className="text-muted mb-0">Write a comment...</p>
-                </Col>
-            </Row> */}
 
             <p className="text-muted mb-0">{moment(post.updatedAt).fromNow()}</p>
         </div >
