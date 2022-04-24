@@ -78,11 +78,10 @@ const Post = ({ hideTop, post }) => {
             }
 
             <div style={{ position: "relative", backgroundColor: "#EEE", paddingTop: "100%" }}>
-                {/* <div style={{ position: "relative", paddingTop: "calc(100% + 20px)" }}> */}
                 {user.nsfwFilter && post.nsfw && <PostGraphicOverlay />}
                 {post.subOnly && post.isSubbed && <PostSubscribeOverlay post={post} />}
-                <div className=''
-                    style={{ width: "100%", height: "100%", position: "absolute", top: "0" }}>
+                <div className='d-flex align-items-center justify-content-center'
+                    style={{ width: "100%", height: "100%", position: "absolute", top: "0", overflow: "hidden" }}>
                     <PostMedia post={post} />
                 </div>
             </div>
