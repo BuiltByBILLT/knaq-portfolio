@@ -23,7 +23,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
     const { mutate, isLoading, reset } = useMutation(() => {
         const formData = new FormData()
         formData.append('text', postText)
-        formData.append('subOnly', true)
+        formData.append('subOnly', checked)
         pictureArray.forEach(pic => formData.append('image', pic.blob))
         return axios.post(`${URL}/post/publish`, formData,
             { headers: { Authorization: `Bearer ${user.token}` } }
