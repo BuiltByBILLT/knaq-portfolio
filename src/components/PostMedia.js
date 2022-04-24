@@ -32,7 +32,7 @@ const PostMedia = ({ post }) => {
     )
 
     if (post.text) return (
-        <div className='d-flex align-items-center justify-content-center text-center'
+        <div className='d-flex align-items-center justify-content-center text-center p-5'
             style={{
                 height: "100%", width: "100%", backgroundColor: "#EEE", overflow: "hidden",
                 whiteSpace: "pre-wrap", fontSize: "36px", fontWeight: "bold"
