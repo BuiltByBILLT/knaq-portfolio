@@ -10,17 +10,25 @@ import 'swiper/modules/navigation/navigation.min.css'
 const PostMedia = ({ post }) => {
 
     if (post.images?.length === 1) return (
-        <img src={post.images && post.images[0]} style={{ width: "100%" }}></img >
+        <div style={{
+            width: "100%", backgroundImage: `url(${post.images[0]})`,
+            backgroundSize: "cover", backgroundPosition: "center"
+        }} />
     )
 
     if (post.images?.length > 1) return (
         <Swiper
-            style={{ height: "calc(100% + 40px)" }}
+            style={{ height: "calc(100% + 40px)", width: "100%" }}
             pagination navigation
             modules={[Pagination, Navigation]}
         >
             {post.images.map(image => (
-                <SwiperSlide key={image}><img src={image} style={{ width: "100%" }}></img ></SwiperSlide>
+                <SwiperSlide key={image}>
+                    <div style={{
+                        width: "100%", height: "calc(100% - 40px)", backgroundImage: `url(${image})`,
+                        backgroundSize: "cover", backgroundPosition: "center"
+                    }} />
+                </SwiperSlide>
             ))}
         </Swiper>
     )

@@ -62,9 +62,11 @@ const Post = ({ hideTop, post }) => {
                 <Row className="py-3">
                     <LinkContainer to={`/user/${post.user.id}`} style={{ cursor: "pointer" }}>
                         <Col xs="auto" className="pr-0">
-                            <img src={post.user.avatarUrl || "/images/Logo.png"}
-                                style={{ height: "30px", width: "30px", borderRadius: "100%" }}
-                            />
+                            <div style={{
+                                height: "30px", width: "30px", borderRadius: "100%",
+                                backgroundImage: `url(${post.user.avatarUrl || "/images/Logo.png"})`,
+                                backgroundSize: "cover", backgroundPosition: "center"
+                            }} />
                         </Col>
                     </LinkContainer>
                     <LinkContainer to={`/user/${post.user.id}`} style={{ cursor: "pointer" }}>
