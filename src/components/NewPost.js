@@ -4,6 +4,7 @@ import { UserContext } from '../contexts/UserContext'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 import UploadPhotoModal from './UploadPhotoModal'
+import UploadVideoModal from './UploadVideoModal'
 import ComingSoon from './ComingSoon'
 
 const NewPost = ({ refetchFree, refetchSub }) => {
@@ -17,7 +18,8 @@ const NewPost = ({ refetchFree, refetchSub }) => {
     const [cropUrl, setCropUrl] = useState("")
     const [cropBlob, setCropBlob] = useState("")
     const [pictureArray, setPictureArray] = useState([])
-
+    const [showVideo, setShowVideo] = useState(false);
+    const [videoFile, setVideoFile] = useState("")
 
     const URL = "https://api.knaqapp.com/api"
     const { mutate, isLoading, reset } = useMutation(() => {
@@ -25,6 +27,8 @@ const NewPost = ({ refetchFree, refetchSub }) => {
         formData.append('text', postText)
         formData.append('subOnly', checked)
         pictureArray.forEach(pic => formData.append('image', pic.blob))
+        if (videoFile) formData.append('video', videoFile)
+
         return axios.post(`${URL}/post/publish`, formData,
             { headers: { Authorization: `Bearer ${user.token}` } }
         )
@@ -35,6 +39,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
             setPostText(``)
             setChecked(false)
             setPictureArray([])
+            setVideoFile('')
             reset()
             refetchFree()
             refetchSub()
@@ -46,9 +51,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
     }
 
     const myForm = useRef();
-    useEffect(() => {
-        if (write) myForm.current.focus()
-    }, [write]);
+    useEffect(() => { if (write) myForm.current.focus() }, [write]);
 
     useEffect(() => {
         if (!showPicture && cropUrl) {
@@ -65,6 +68,9 @@ const NewPost = ({ refetchFree, refetchSub }) => {
             <UploadPhotoModal show={showPicture} setShow={setShowPicture}
                 setCropUrl={setCropUrl} setCropBlob={setCropBlob} cropType="square"
             />
+            <UploadVideoModal show={showVideo} setShow={setShowVideo}
+                setVideoFile={setVideoFile}
+            />
             <Row className="pt-2 border-bottom">
                 <Col xs="auto" className="pr-0">
                     <img src={user.avatarUrl || "/images/Logo.png"}
@@ -78,7 +84,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                     ></Form.Control>}
                     {!write && <p onClick={() => setWrite(true)} className="text-muted mb-4">What's Happening?</p>}
 
-                    {pictureArray.length > 0 &&
+                    {(pictureArray.length > 0 || videoFile) &&
                         <Form.Row >
                             {pictureArray.map(pic => (
                                 <Col xs={3} key={pic.url} className="mt-3">
@@ -93,12 +99,32 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                                     />
                                 </Col>
                             ))}
+                            {videoFile && <Col xs={3} className="mt-3">
+                                <div style={{ width: "100%", paddingBottom: "100%" }}>
+                                    <div style={{
+                                        position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
+                                        border: "2px solid #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
+                                        color: "#AFAFAF", cursor: "pointer"
+                                    }}
+                                        className="d-flex flex-column justify-content-center"
+                                        onClick={() => setVideoFile("")}
+                                    >
+                                        <div className="text-center px-2">
+                                            <i className="fas fa-video my-2" />
+                                        </div>
+                                        <div className="text-center px-2" style={{ overflowWrap: "break-word", fontSize: "12px" }}>
+                                            {videoFile.name}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>}
+
                             {pictureArray.length < 10 && <Col xs={3} className="mt-3">
                                 <div style={{ width: "100%", paddingBottom: "100%" }}>
                                     <div style={{
                                         position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
                                         border: "2px dashed #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
-                                        color: "#AFAFAF"
+                                        color: "#AFAFAF", cursor: "pointer"
                                     }}
                                         className="d-flex flex-column align-items-center justify-content-center"
                                         onClick={() => setShowPicture(true)}
@@ -115,10 +141,13 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                             <>
                                 <Col xs="auto" className="px-1 my-auto ">
                                     <i className="far fa-image fa-lg" style={{ cursor: "pointer" }}
-                                        onClick={() => setShowPicture(true)}></i>
+                                        onClick={() => setShowPicture(true)}>
+                                    </i>
                                 </Col>
                                 <Col xs="auto" className="px-1 my-auto">
-                                    <i className="fas fa-video fa-lg"></i>
+                                    <i className="fas fa-video fa-lg" style={{ cursor: "pointer" }}
+                                        onClick={() => setShowVideo(true)}>
+                                    </i>
                                 </Col>
                             </>
                         }
