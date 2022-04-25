@@ -10,6 +10,7 @@ import Post from '../components/Post'
 
 import '../hiddenScroll.css'
 import PostModal from '../components/PostModal'
+import PostExploreThumb from '../components/PostExploreThumb'
 
 export const Explore = () => {
 
@@ -63,10 +64,14 @@ export const Explore = () => {
             <PostModal show={show} setShow={setShow} post={modalPost} />
             <TripleCol>
                 <Row onScroll={onScroll} ref={listInnerRef} className="hiddenScroll" >
-                    {filtered.map((post) => (
-                        <Col key={post.id} lg={4} className="p-2">
-                            <div onClick={() => { setShow(true);; setModalPost(post) }}>
-                                <PostMedia post={post} />
+                    {posts.map((post) => (
+                        <Col key={post.id} lg={4} className="p-0">
+                            <div style={{ width: "100%", paddingBottom: "100%" }}
+                                onClick={() => { setShow(true); setModalPost(post) }}>
+                                {/* <Post post={post} /> */}
+                                <div className="p-2" style={{ width: "100%", height: "100%", position: "absolute", top: "0" }}>
+                                    <PostExploreThumb post={post} />
+                                </div>
                             </div>
                         </Col>
                     ))}
