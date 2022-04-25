@@ -34,7 +34,7 @@ const PostMedia = ({ post }) => {
     )
 
     if (post.video && post.videoScreenshot) return (
-        <video controls>
+        <video controls style={{ width: "100%" }}>
             <source src={post.video} type="video/webm"></source>
         </video>
     )
