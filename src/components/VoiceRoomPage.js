@@ -14,6 +14,7 @@ import Loader from './Loader'
 
 
 const client = AgoraRTC.createClient({ codec: 'vp8', mode: 'rtc' });
+AgoraRTC.setLogLevel(2);
 
 
 const VoiceRoomPage = () => {
