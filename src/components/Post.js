@@ -81,6 +81,7 @@ const Post = ({ hideTop, post }) => {
             }
 
             <div style={{ position: "relative", backgroundColor: "#EEE", paddingTop: "100%" }}>
+                {/* <div style={{ position: "relative", backgroundImage: "radial-gradient(#999, #FFF)", paddingTop: "100%" }}> */}
                 {user.nsfwFilter && post.nsfw && <PostGraphicOverlay />}
                 {post.subOnly && post.isSubbed && <PostSubscribeOverlay post={post} />}
                 <div className='d-flex justify-content-center'
