@@ -41,13 +41,14 @@ const Post = ({ hideTop, post }) => {
     const shareHandler = () => setShowShare(true)
 
     const { mutate: likeHandler, isLoading: likeLoading } = useMutation(() => {
+        setLike(!like)
         return axios.post(
             `https://api.knaqapp.com/api/post/like`,
             { postId: post.id, otherId: post.user.id, like: !like },
             { headers: { Authorization: `Bearer ${user.token}` } }
         )
     }, {
-        onSuccess: (data) => { setLike(!like) },
+        onError: () => { setLike(!like) },
     })
 
 
@@ -80,14 +81,14 @@ const Post = ({ hideTop, post }) => {
             <div style={{ position: "relative", backgroundColor: "#EEE", paddingTop: "100%" }}>
                 {user.nsfwFilter && post.nsfw && <PostGraphicOverlay />}
                 {post.subOnly && post.isSubbed && <PostSubscribeOverlay post={post} />}
-                <div className='d-flex'
+                <div className='d-flex justify-content-center'
                     style={{ width: "100%", height: "100%", position: "absolute", top: "0" }}>
                     <PostMedia post={post} />
                 </div>
             </div>
 
 
-            <Row className="my-2">
+            <Row className="my-2" style={{ position: "relative", zIndex: "20" }}>
                 <Col xs="auto" className="pr-1 my-auto ">
                     <i className={like ? "fas fa-heart fa-lg text-danger" : "far fa-heart fa-lg"}
                         style={{ cursor: "pointer" }}
