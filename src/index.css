@@ -101,3 +101,46 @@ main {
   height: calc(100vh - 100px);
   width: min(calc(100vw - 50px), calc(100vh - 300px)) !important;
 }
+/* Post Modal Styles End */
+
+/* Delete Overlay */
+/* .deleteHover:hover{
+  opacity: 1;
+} */
+
+.deleteHover:hover::after{
+  content: '\f2ed';
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #FFF;
+  font-family: "Font Awesome 5 Free";
+  background-color: #AAA;
+  width:30px;
+  height:30px;
+  border-radius: 100px;
+  opacity: 0.8;
+  margin-top:5px;
+  margin-right:5px;
+}
+.deleteVidHover:hover::after{
+  content: '\f2ed';
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #FFF;
+  font-family: "Font Awesome 5 Free";
+  background-color: #AAA;
+  width:30px;
+  height:30px;
+  border-radius: 100px;
+  opacity: 0.8;
+  margin-top:5px;
+  margin-right:5px;
+}
+
+/* Quotes End */

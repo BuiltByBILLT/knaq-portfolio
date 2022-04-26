@@ -95,6 +95,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                                             backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center",
                                             cursor: "pointer"
                                         }}
+                                        className="deleteHover d-flex justify-content-end"
                                         onClick={() => setPictureArray(pictureArray.filter(item => item.url !== pic.url))}
                                     />
                                 </Col>
@@ -106,14 +107,16 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                                         border: "2px solid #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
                                         color: "#AFAFAF", cursor: "pointer"
                                     }}
-                                        className="d-flex flex-column justify-content-center"
+                                        className="d-flex flex-column align-items-end deleteHover"
                                         onClick={() => setVideoFile("")}
                                     >
-                                        <div className="text-center px-2">
-                                            <i className="fas fa-video my-2" />
-                                        </div>
-                                        <div className="text-center px-2" style={{ overflowWrap: "break-word", fontSize: "12px" }}>
-                                            {videoFile.name}
+                                        <div className="my-auto" style={{ width: "100%" }}>
+                                            <div className="text-center px-2" style={{ width: "100%" }}>
+                                                <i className="fas fa-video my-2" />
+                                            </div>
+                                            <div className="text-center px-2" style={{ overflowWrap: "break-word", fontSize: "10px" }}>
+                                                {videoFile.name}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
