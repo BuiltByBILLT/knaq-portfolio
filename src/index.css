@@ -94,3 +94,10 @@ main {
 } */
 /* End Swiper styles */
 
+
+/* Post Modal Styles */
+.postModal {
+  margin-top: 10px !important;
+  height: calc(100vh - 100px);
+  width: min(calc(100vw - 50px), calc(100vh - 300px)) !important;
+}
