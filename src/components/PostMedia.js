@@ -9,11 +9,26 @@ import 'swiper/modules/navigation/navigation.min.css'
 
 const PostMedia = ({ post }) => {
 
-    if (post.images?.length === 1) return (
-        <div style={{
-            width: "100%", backgroundImage: `url(${post.images[0]})`,
-            backgroundSize: "cover", backgroundPosition: "center"
-        }} />
+    if (post.images?.length && post.video && post.videoScreenshot) return (
+        <Swiper
+            style={{ height: "calc(100% + 40px)", width: "100%" }}
+            pagination navigation
+            modules={[Pagination, Navigation]}
+        >
+            <SwiperSlide>
+                <video controls style={{ width: "100%" }}>
+                    <source src={post.video} type="video/webm"></source>
+                </video>
+            </SwiperSlide>
+            {post.images.map(image => (
+                <SwiperSlide key={image}>
+                    <div style={{
+                        width: "100%", height: "calc(100% - 40px)", backgroundImage: `url(${image})`,
+                        backgroundSize: "cover", backgroundPosition: "center"
+                    }} />
+                </SwiperSlide>
+            ))}
+        </Swiper>
     )
 
     if (post.images?.length > 1) return (
@@ -31,6 +46,13 @@ const PostMedia = ({ post }) => {
                 </SwiperSlide>
             ))}
         </Swiper>
+    )
+
+    if (post.images?.length === 1) return (
+        <div style={{
+            width: "100%", backgroundImage: `url(${post.images[0]})`,
+            backgroundSize: "cover", backgroundPosition: "center"
+        }} />
     )
 
     if (post.video && post.videoScreenshot) return (
