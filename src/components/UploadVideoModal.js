@@ -20,11 +20,11 @@ const UploadPhotoModal = ({ show, setShow, setVideoFile }) => {
     }
 
     return (
-        <Modal show={show} onHide={closeHandler} size="lg" >
+        <Modal show={show} onHide={closeHandler} size="md" >
             <Modal.Header closeButton>
                 <Modal.Title>Upload Video</Modal.Title>
             </Modal.Header>
-            <div id="bodyContainer" style={{ paddingTop: `${file ? "0px" : "50%"}`, position: "relative" }}>
+            <div id="bodyContainer" style={{ paddingTop: `${file ? "0px" : "70%"}`, position: "relative" }}>
                 <div id='modalBody' className="px-5 text-center upload" style={{ position: "absolute", height: "100%", width: "100%", top: 0 }}>
                     {!file &&
                         <form className="d-flex" style={{ height: "100%", position: "relative" }}>
@@ -33,7 +33,7 @@ const UploadPhotoModal = ({ show, setShow, setVideoFile }) => {
                             <p className='my-auto'>Drag your files here or click in this area!</p>
                         </form>}
                 </div>
-                <div className="text-center p-5">{file?.name}</div>
+                {file && <div className="text-center p-5">{file?.name}</div>}
             </div>
             <Modal.Footer>
                 <Button variant="info" className="px-5 py-2" onClick={setHandler} disabled={false}>
