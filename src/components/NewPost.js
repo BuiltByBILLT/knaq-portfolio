@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Col, Form, Row } from 'react-bootstrap'
+import { Button, Col, Form, ProgressBar, Row } from 'react-bootstrap'
 import { UserContext } from '../contexts/UserContext'
 import { useMutation } from 'react-query'
 import axios from 'axios'
@@ -20,6 +20,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
     const [pictureArray, setPictureArray] = useState([])
     const [showVideo, setShowVideo] = useState(false);
     const [videoFile, setVideoFile] = useState("")
+    const [uploadProgress, setUploadProgress] = useState(0)
 
     const URL = "https://api.knaqapp.com/api"
     const { mutate, isLoading, reset } = useMutation(() => {
@@ -30,7 +31,12 @@ const NewPost = ({ refetchFree, refetchSub }) => {
         if (videoFile) formData.append('video', videoFile)
 
         return axios.post(`${URL}/post/publish`, formData,
-            { headers: { Authorization: `Bearer ${user.token}` } }
+            {
+                headers: { Authorization: `Bearer ${user.token}` },
+                onUploadProgress: progressEvent => {
+                    setUploadProgress(parseInt(Math.round(progressEvent.loaded / progressEvent.total * 100)))
+                }
+            }
         )
     }, {
         onSuccess: (data) => {
@@ -40,6 +46,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
             setChecked(false)
             setPictureArray([])
             setVideoFile('')
+            setUploadProgress(0)
             reset()
             refetchFree()
             refetchSub()
@@ -158,7 +165,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                             }
                         </Form.Row>
                     }
-
+                    {uploadProgress > 0 && <ProgressBar variant='info' className="mt-3" animated now={uploadProgress} />}
                     <Row className="ml-0 my-3">
                         {(pictureArray.length === 0 && !videoFile) &&
                             <>
