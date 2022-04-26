@@ -100,47 +100,67 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                                     />
                                 </Col>
                             ))}
-                            {videoFile && <Col xs={3} className="mt-3">
-                                <div style={{ width: "100%", paddingBottom: "100%" }}>
-                                    <div style={{
-                                        position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
-                                        border: "2px solid #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
-                                        color: "#AFAFAF", cursor: "pointer"
-                                    }}
-                                        className="d-flex flex-column align-items-end deleteHover"
-                                        onClick={() => setVideoFile("")}
-                                    >
-                                        <div className="my-auto" style={{ width: "100%" }}>
-                                            <div className="text-center px-2" style={{ width: "100%" }}>
-                                                <i className="fas fa-video my-2" />
-                                            </div>
-                                            <div className="text-center px-2" style={{ overflowWrap: "break-word", fontSize: "10px" }}>
-                                                {videoFile.name}
+                            {videoFile &&
+                                <Col xs={3} className="mt-3">
+                                    <div style={{ width: "100%", paddingBottom: "100%" }}>
+                                        <div style={{
+                                            position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
+                                            border: "2px solid #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
+                                            color: "#AFAFAF", cursor: "pointer"
+                                        }}
+                                            className="d-flex flex-column align-items-end deleteHover"
+                                            onClick={() => setVideoFile("")}
+                                        >
+                                            <div className="my-auto" style={{ width: "100%" }}>
+                                                <div className="text-center px-2" style={{ width: "100%" }}>
+                                                    <i className="fas fa-video my-2" />
+                                                </div>
+                                                <div className="text-center px-2" style={{ overflowWrap: "break-word", fontSize: "10px" }}>
+                                                    {videoFile.name}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Col>}
+                                </Col>
+                            }
 
-                            {pictureArray.length < 10 && <Col xs={3} className="mt-3">
-                                <div style={{ width: "100%", paddingBottom: "100%" }}>
-                                    <div style={{
-                                        position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
-                                        border: "2px dashed #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
-                                        color: "#AFAFAF", cursor: "pointer"
-                                    }}
-                                        className="d-flex flex-column align-items-center justify-content-center"
-                                        onClick={() => setShowPicture(true)}
-                                    >
-                                        <i className="fas fa-plus my-2" />Add Photo
+                            {pictureArray.length < 10 &&
+                                <Col xs={3} className="mt-3">
+                                    <div style={{ width: "100%", paddingBottom: "100%" }}>
+                                        <div style={{
+                                            position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
+                                            border: "2px dashed #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
+                                            color: "#AFAFAF", cursor: "pointer"
+                                        }}
+                                            className="d-flex flex-column align-items-center justify-content-center"
+                                            onClick={() => setShowPicture(true)}
+                                        >
+                                            <i className="fas fa-plus my-2" />Add Photo
+                                        </div>
                                     </div>
-                                </div>
-                            </Col>}
+                                </Col>
+                            }
+                            {!videoFile &&
+                                <Col xs={3} className="mt-3">
+                                    <div style={{ width: "100%", paddingBottom: "100%" }}>
+                                        <div style={{
+                                            position: "absolute", top: "0", width: "calc(100% - 10px)", height: "100%",
+                                            border: "2px dashed #AFAFAF", borderRadius: "5px", backgroundColor: "#F4F4F4",
+                                            color: "#AFAFAF", cursor: "pointer"
+                                        }}
+                                            className="d-flex flex-column align-items-center justify-content-center"
+                                            onClick={() => setShowVideo(true)}
+                                        >
+                                            <i className="fas fa-plus my-2" />Add Video
+                                        </div>
+                                    </div>
+                                </Col>
+                            }
                         </Form.Row>
                     }
 
                     <Row className="ml-0 my-3">
-                        {pictureArray.length === 0 &&
+                        {(pictureArray.length === 0 && !videoFile) &&
                             <>
                                 <Col xs="auto" className="px-1 my-auto ">
                                     <i className="far fa-image fa-lg" style={{ cursor: "pointer" }}
