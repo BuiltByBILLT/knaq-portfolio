@@ -24,11 +24,11 @@ export const Rooms = () => {
     return (
         <>
             <Container style={{ height: "100%" }}>
-                <Row className="my-0" style={{ height: "100%" }}>
+                <Row className="my-0 flex-nowrap" style={{ height: "100%" }}>
                     <Col xs={3} className="">
                         <LeftNav />
                     </Col>
-                    <Col className="border-right border-left px-0" style={{ height: "100%", marginTop: "-60px" }}>
+                    <Col xs={4} className="border-right border-left px-0" style={{ height: "calc(100% + 60px)", marginTop: "-60px" }}>
                         {nav.roomType === "CHAT"
                             ? (<>
                                 <ChatHeader />
@@ -40,7 +40,7 @@ export const Rooms = () => {
                             </>)
                         }
                     </Col>
-                    <Col className="border-right px-0" style={{ height: "100%", marginTop: "-60px" }}>
+                    <Col xs={5} className="border-right px-0" style={{ height: "calc(100% + 60px)", marginTop: "-60px" }}>
                         {nav.roomType === "CHAT"
                             ? nav.chat.id
                                 ? (<>

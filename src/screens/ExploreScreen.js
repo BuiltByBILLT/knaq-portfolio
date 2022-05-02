@@ -68,7 +68,6 @@ export const Explore = () => {
                         <Col key={post.id} lg={4} className="p-0">
                             <div style={{ width: "100%", paddingBottom: "100%" }}
                                 onClick={() => { setShow(true); setModalPost(post) }}>
-                                {/* <Post post={post} /> */}
                                 <div className="p-2" style={{ width: "100%", height: "100%", position: "absolute", top: "0" }}>
                                     <PostExploreThumb post={post} />
                                 </div>

@@ -9,6 +9,7 @@
     "agora-rtc-react": "^1.1.0",
     "agora-rtc-sdk-ng": "^4.8.2",
     "animate.css": "^4.1.1",
+    "autosize": "^5.0.1",
     "axios": "^0.24.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",

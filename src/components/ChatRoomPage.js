@@ -6,8 +6,7 @@ import { useMutation, useQuery } from 'react-query'
 import axios from 'axios'
 import { useState } from 'react';
 import { NavContext } from '../contexts/NavContext';
-import ChatTitleBar from './ChatTitleBar';
-import ChatSettings from './ChatSettings';
+import autosize from 'autosize'
 
 const ChatRoomPage = () => {
     console.log("page")
@@ -57,17 +56,22 @@ const ChatRoomPage = () => {
             reset()
             refetch()
             setMessage(``)
-            myForm.current.focus();
+            chatbar.current.focus();
         },
     })
 
     // Keep input focused and messages scrolled down
     const myScreen = useRef(); // passed to ChatMessages
-    const myForm = useRef();
+    const chatbar = useRef();
     useEffect(() => {
-        if (!nav.chatSettings) myForm.current.focus();
+        if (!nav.chatSettings) chatbar.current.focus();
     }, [message, raw]);
 
+
+    // Autosize ChatBar
+    useEffect(() => {
+        autosize(chatbar.current)
+    })
 
     // Handlers
     const submitHandler = (e) => {
@@ -75,6 +79,7 @@ const ChatRoomPage = () => {
         if (!message || isLoading) return
         mutate(message)
     }
+
 
     return (
         <>
@@ -86,22 +91,32 @@ const ChatRoomPage = () => {
                 <ChatMessages raw={raw} myScreen={myScreen} />
             </div>
 
-            <Row className="align-items-center border-top mx-0" style={{ height: "50px" }}>
+            <Row className="align-items-end border-top mx-0 py-2"
+                style={{ minHeight: "50px", position: 'absolute', bottom: 0, backgroundColor: "white", width: "100%" }}>
                 <Col xs="auto" className="">
                     <i className="far fa-image" style={{ fontSize: "22px", marginTop: "4px" }}></i>
                 </Col>
                 <Col className="px-0">
-                    <Form onSubmit={submitHandler}>
-                        <Form.Control ref={myForm}
-                            type="text" placeholder="Type Message"
-                            className="py-0 mx-auto text-left"
-                            style={{ borderRadius: "25px", height: "30px" }}
+                    <Form onSubmit={submitHandler} >
+                        <Form.Control ref={chatbar}
+                            as="textarea" placeholder="Type Message"
+                            className="py-1 mx-auto text-left"
+                            rows={1}
+                            style={{ borderRadius: "25px", minHeight: "30px", resize: "none" }}
                             value={message}
                             disabled={isLoading}
-                            onChange={(e) => setMessage(e.target.value)} />
+                            onChange={(e) => setMessage(e.target.value)}
+                            onKeyPress={(e) => {
+                                if (e.key === "Enter" && !e.shiftKey) {
+                                    console.log("Enter")
+                                    console.log(e.target.form)
+                                    e.target.form.dispatchEvent(new Event("submit", { 'bubbles': true }));
+                                    e.preventDefault();
+                                }
+                            }} />
                     </Form>
                 </Col>
-                <Col xs="auto" className="text-info" style={{ cursor: "pointer" }}
+                <Col xs="auto" className="text-info" style={{ cursor: "pointer", marginBottom: "3px" }}
                     onClick={submitHandler}>
                     Send
                 </Col>
