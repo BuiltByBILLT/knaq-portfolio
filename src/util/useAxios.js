@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { useContext } from 'react'
 import { UserContext, UserContextUpdate } from '../contexts/UserContext'
+import { useHistory } from 'react-router-dom'
 
 export default function useAxios() {
-    const user = useContext(UserContext)
-    const userUpdate = useContext(UserContextUpdate)
+    const history = useHistory()
+    // const user = useContext(UserContext)
+    // const userUpdate = useContext(UserContextUpdate)
 
     axios.interceptors.request.use(
         request => {
@@ -21,12 +23,18 @@ export default function useAxios() {
             return response;
         },
         error => {
-            if (error.response.data?.message === "Invalid token") refetchToken()
+            // if (error.response.data?.message === "Invalid token") refetchToken()
+            if (error.response.data?.message === "Invalid token") logout()
             return Promise.reject(error);
         }
     );
 
     const refresher = axios.create()
+
+    const logout = () => {
+        console.log("logout")
+        history.push("/login")
+    }
 
     const refetchToken = async () => {
         console.log("=Token Error")

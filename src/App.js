@@ -18,10 +18,8 @@ import PromoScreen from "./screens/PromoScreen";
 import PrivacyScreen from "./screens/PrivacyScreen";
 import TermsScreen from "./screens/TermsScreen";
 import FaqScreen from "./screens/FaqScreen";
-import useAxios from './util/useAxios.js'
 
 function App() {
-  useAxios()
   return (
     <Router>
       <Header />
