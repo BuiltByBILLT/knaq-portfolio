@@ -43,7 +43,7 @@ const SharePostModal = ({ show, setShow, type, shareId }) => {
     }, {
         onSuccess: (data) => {
             let raw = data.data.data
-            raw = raw.filter(room => room.memberCount > 2)
+            raw = raw.filter(room => room.memberCount > 1)
             setRooms([...raw])
         },
         enabled: !!show
@@ -77,11 +77,14 @@ const SharePostModal = ({ show, setShow, type, shareId }) => {
         if (search) {
             setRoomsFiltered(
                 rooms.filter(room =>
-                    room.title.includes(search)  // Include search members inside  Later
+                    (room.title.includes(search) ||
+                        room.members.find(member => member.displayName.toLowerCase().includes(search)))  // Members inside room
                     && selectedRooms.filter(selected => selected.id == room.id).length == 0
                 )
             )
-            setPeopleFiltered(people.filter(person => selectedPeople.filter(selected => selected.id == person.id).length == 0))
+            setPeopleFiltered(people.filter(person =>
+                rooms.filter(room => room.memberCount == 2 && room.members.find(member => member.id == person.id)).length == 0
+                && selectedPeople.filter(selected => selected.id == person.id).length == 0))
         } else {
             setRoomsFiltered([...rooms].filter(room => selectedRooms.filter(selected => selected.id == room.id).length == 0))
             setPeopleFiltered([])
