@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
 
-const Forgot_1 = ({ state, setState }) => {
+const Forgot1 = ({ state, setState }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -45,4 +45,4 @@ const Forgot_1 = ({ state, setState }) => {
     )
 }
 
-export default Forgot_1
+export default Forgot1

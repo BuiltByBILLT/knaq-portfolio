@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 
-const Forgot_3 = ({ state, setState }) => {
+const Forgot3 = ({ state, setState }) => {
 
     const history = useHistory()
     const submitHandler = (e) => {
@@ -41,4 +41,4 @@ const Forgot_3 = ({ state, setState }) => {
     )
 }
 
-export default Forgot_3
+export default Forgot3

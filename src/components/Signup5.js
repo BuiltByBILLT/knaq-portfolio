@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const Signup_5 = ({ state, setState }) => {
+const Signup5 = ({ state, setState }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -46,4 +46,4 @@ const Signup_5 = ({ state, setState }) => {
     )
 }
 
-export default Signup_5
+export default Signup5

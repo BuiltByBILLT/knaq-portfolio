@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
 
-const Signup_3 = ({ state, setState }) => {
+const Signup3 = ({ state, setState }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -42,4 +42,4 @@ const Signup_3 = ({ state, setState }) => {
     )
 }
 
-export default Signup_3
+export default Signup3

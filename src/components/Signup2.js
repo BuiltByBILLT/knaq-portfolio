@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
 
-const Signup_2 = ({ state, setState }) => {
+const Signup2 = ({ state, setState }) => {
 
     const [error, setError] = useState("")
 
@@ -56,4 +56,4 @@ const Signup_2 = ({ state, setState }) => {
     )
 }
 
-export default Signup_2
+export default Signup2

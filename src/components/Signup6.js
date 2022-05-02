@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Loader from './Loader'
 import { useHistory } from 'react-router-dom'
 
-const Signup_5 = ({ state, setState }) => {
+const Signup5 = ({ state, setState }) => {
 
     const [success, setSuccess] = useState(true)
 
@@ -45,4 +45,4 @@ const Signup_5 = ({ state, setState }) => {
     )
 }
 
-export default Signup_5
+export default Signup5
