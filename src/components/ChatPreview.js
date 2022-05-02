@@ -13,13 +13,11 @@ const ChatPreview = ({ room }) => {
     const user = useContext(UserContext)
 
 
-    const prefix = !room.lastMessage
-        ? ""
-        : room.lastMessage.senderId === user.id
-            ? "You:"
-            : room.title !== room.lastMessage.sender
-                ? room.lastMessage.sender + ":"
-                : ""
+    const prefix = room.lastMessage.senderId === user.id
+        ? "You:"
+        : room.title !== room.lastMessage.sender
+            ? room.lastMessage.sender + ":"
+            : ""
 
     const chatHandler = () => {
         updateNav({ type: "CHAT_ID", payload: { ...room } })
@@ -61,7 +59,10 @@ const ChatPreview = ({ room }) => {
                     </Row>
                     <Row className={room.lastMessage ? room.lastMessage.id === room.lastReadMessageId ? "text-muted" : "font-weight-bold" : "text-muted"}
                         style={{ fontSize: "12px" }}>
-                        {prefix} {room.lastMessage ? room.lastMessage.text : `Chat Room Created`}
+                        {prefix} {room.lastMessage
+                            ? room.lastMessage.type == "post"
+                                ? "Shared a post" : room.lastMessage.text
+                            : `Chat Room Created`}
                     </Row>
                     {room.memberCount > 2 &&
                         <Row className="mt-2">

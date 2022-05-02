@@ -129,6 +129,48 @@ const ChatMessages = ({ raw, myScreen }) => {
                                     {message.text}
                                 </div>
                             }
+                            {message.type === "leave" && (<div className="text-center text-muted" style={{ width: "100%" }}>{message.text}</div>)}
+                            {message.type === "post" &&
+                                <div className="mt-2" style={{ width: "100%" }}>
+                                    <div className="text-center text-muted">{message.isMe ? "You" : message.sender} shared a post</div>
+                                    <Card style={{ cursor: "pointer" }} onClick={() => postHandler(message.post)}>
+                                        <Card.Header className="p-2">
+                                            <div className="d-flex align-items-center">
+                                                <div className="mr-2" style={{
+                                                    width: "30px", height: "30px", borderRadius: "100px",
+                                                    backgroundSize: "cover",
+                                                    backgroundImage: `url(${message.post.user.avatarUrl || "/images/Logo.png"})`
+                                                }} />
+                                                {message.post.user.displayName}
+                                            </div>
+                                        </Card.Header>
+                                        <div style={{ width: "100%", paddingBottom: "100%" }}>
+                                            <div style={{ width: "100%", height: "calc(100% - 47px)", position: "absolute", top: "47px" }}>
+                                                <PostExploreThumb post={message.post} />
+                                            </div>
+                                        </div>
+                                    </Card>
+                                </div>
+                            }
+                            {message.type === "user" &&
+                                <div className="mt-2">
+                                    <div className="text-center text-muted">{message.isMe ? "You" : message.sender} shared a user</div>
+                                    <div className="d-flex  align-items-center"
+                                        style={{ backgroundColor: "#EEE", cursor: "pointer", borderRadius: "100px" }}
+                                        onClick={() => history.push(`user/${message.profileUser.id}`)}
+                                    >
+                                        <div className="m-3" style={{
+                                            width: "60px", height: "60px", borderRadius: "100px",
+                                            backgroundSize: "cover",
+                                            backgroundImage: `url(${message.profileUser.avatarUrl || "/images/Logo.png"})`
+                                        }} />
+                                        <div style={{ fontSize: "24px" }}>
+                                            {message.profileUser.displayName}
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
 
                             <div className="mt-auto px-1">
                                 <div style={{
@@ -149,44 +191,3 @@ const ChatMessages = ({ raw, myScreen }) => {
 
 export default ChatMessages;
 
-// {message.type === "leave" && (<div className="text-center text-muted">{message.text}</div>)}
-// {message.type === "post" &&
-//     <div className="mt-2">
-//         <div className="text-center text-muted">{message.isMe ? "You" : message.sender} shared a post</div>
-//         <Card style={{ cursor: "pointer" }} onClick={() => postHandler(message.post)}>
-//             <Card.Header className="p-2">
-//                 <div className="d-flex align-items-center">
-//                     <div className="mr-2" style={{
-//                         width: "30px", height: "30px", borderRadius: "100px",
-//                         backgroundSize: "cover",
-//                         backgroundImage: `url(${message.post.user.avatarUrl || "/images/Logo.png"})`
-//                     }} />
-//                     {message.post.user.displayName}
-//                 </div>
-//             </Card.Header>
-//             <div style={{ width: "100%", paddingBottom: "100%" }}>
-//                 <div style={{ width: "100%", height: "calc(100% - 47px)", position: "absolute", top: "47px" }}>
-//                     <PostExploreThumb post={message.post} />
-//                 </div>
-//             </div>
-//         </Card>
-//     </div>
-// }
-// {message.type === "user" &&
-//     <div className="mt-2">
-//         <div className="text-center text-muted">{message.isMe ? "You" : message.sender} shared a user</div>
-//         <div className="d-flex  align-items-center"
-//             style={{ backgroundColor: "#EEE", cursor: "pointer", borderRadius: "100px" }}
-//             onClick={() => history.push(`user/${message.profileUser.id}`)}
-//         >
-//             <div className="m-3" style={{
-//                 width: "60px", height: "60px", borderRadius: "100px",
-//                 backgroundSize: "cover",
-//                 backgroundImage: `url(${message.profileUser.avatarUrl || "/images/Logo.png"})`
-//             }} />
-//             <div style={{ fontSize: "24px" }}>
-//                 {message.profileUser.displayName}
-//             </div>
-//         </div>
-//     </div>
-// }
