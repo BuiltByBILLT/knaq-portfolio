@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Signup0 from '../components/Signup0'
 import Signup1 from '../components/Signup1'
@@ -10,20 +10,20 @@ import Signup6 from '../components/Signup6'
 
 const SignupScreen = () => {
 
-
-    // const [username, setUsername] = useState('')
-    // const [phone, setPhone] = useState('')
-    // const [transition, setTransition] = useState(0)
     const [state, setState] = useState({
         transition: 0,
-        email: "",
-        phone: "",
+        phoneNumber: "",
         username: "",
         code: "",
         newPassword: "",
         confirmPassword: "",
         referral: "",
+        token: "",
     })
+
+    useEffect(() => {
+        console.log(state)
+    }, [state])
 
 
     return (

@@ -2,19 +2,12 @@ import React, { useState } from 'react'
 import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
-import { useHistory } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Signup5 = ({ state, setState }) => {
 
     const [success, setSuccess] = useState(true)
 
-    const history = useHistory()
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        history.push('/profile')
-        // setState({ ...state, transition: 6 })
-    }
 
     if (state.transition !== 6) return null
     return (
@@ -35,10 +28,12 @@ const Signup5 = ({ state, setState }) => {
                         : <Loader size={200} />
                     }
 
-                    {success && <Button variant="info" block className="mt-5 mb-3" disabled={!state.code}
-                        type="button" onClick={submitHandler}>
-                        Go to Profile Page
-                    </Button>}
+                    <LinkContainer to="/profile">
+                        <Button variant="info" block className="mt-5 mb-3" disabled={!state.code}
+                            type="button">
+                            Go to Profile Page
+                        </Button>
+                    </LinkContainer>
                 </Col>
             </Row>
         </div>

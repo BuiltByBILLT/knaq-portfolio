@@ -1,14 +1,51 @@
 import React, { useState } from 'react'
 import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import { useMutation } from 'react-query'
+import axios from 'axios'
 
 const Signup1 = ({ state, setState }) => {
 
     const [error, setError] = useState("")
+    const [resent, setResent] = useState(false)
 
     const submitHandler = (e) => {
         e.preventDefault()
+        // mutate()
         setState({ ...state, transition: 2 })
     }
+
+    const { mutate, isLoading } = useMutation(() => {
+        return axios.post(`https://api.knaqapp.com/api/auth/code_check`,
+            { phoneNumber: state.phoneNumber, code: state.code }
+        )
+    }, {
+        onSuccess: (data) => {
+            console.log(data.data)
+            // setState({ ...state, transition: 2 })
+            setError('')
+        },
+        onError: (error) => {
+            setError(error.response && error.response.data.message
+                ? error.response.data.message : error.message)
+        }
+    })
+
+    const { mutate: resendHandler } = useMutation(() => {
+        return axios.post(`https://api.knaqapp.com/api/auth/code_request`,
+            { phoneNumber: state.phoneNumber }
+        )
+    }, {
+        onSuccess: (data) => {
+            console.log(data.data)
+            setResent(true)
+            setError('')
+        },
+        onError: (error) => {
+            // setResent(true)
+            setError(error.response && error.response.data.message
+                ? error.response.data.message : error.message)
+        }
+    })
 
     if (state.transition !== 1) return null
     return (
@@ -23,7 +60,9 @@ const Signup1 = ({ state, setState }) => {
             </Row>
 
             <p className='text-center my-5' style={{ fontSize: "20px" }}>Please enter your code below</p>
-            <p className="text-center my-4 text-info" style={{ fontSize: "20px", cursor: "pointer" }}>Resend Code</p>
+            {!resent && <p className="text-center my-4 text-info" style={{ fontSize: "20px", cursor: "pointer" }}
+                onClick={resendHandler}>Resend Code</p>}
+            {resent && <p className="text-center my-4 text-info" style={{ fontSize: "20px" }}>Sent Again</p>}
 
             <Row>
                 <Col xs={12} lg={{ span: 6, offset: 3 }}>

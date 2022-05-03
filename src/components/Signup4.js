@@ -29,7 +29,7 @@ const Signup4 = ({ state, setState }) => {
                         By continuing you acknowledge that you have read and consent to abiding by the Terms of Service detailed here:
                     </p>
                     <div className="text-center" onClick={() => setRead(true)}>
-                        <a target="_blank" href="/"
+                        <a target="_blank" href="/terms"
                             className="text-center my-5 text-info" style={{ fontSize: "20px" }}
                         >View Terms of Service
                         </a>

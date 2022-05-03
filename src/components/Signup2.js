@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import { useMutation } from 'react-query'
+import axios from 'axios'
 
 const Signup2 = ({ state, setState }) => {
 
@@ -8,7 +10,29 @@ const Signup2 = ({ state, setState }) => {
     const submitHandler = (e) => {
         e.preventDefault()
         setState({ ...state, transition: 3 })
+        // if (state.newPassword === state.confirmPassword) mutate()
+        // else setError("Passwords do not match")
     }
+    useEffect(() => {
+        setError('')
+    }, [state.newPassword, state.confirmPassword])
+
+    const { mutate, isLoading } = useMutation(() => {
+        return axios.post(`https://api.knaqapp.com/api/signup`, {
+            username: state.username, password: state.newPassword, referralCode: state.referral
+        })
+    }, {
+        onSuccess: (data) => {
+            console.log(data.data)
+            setState({ ...state, transition: 3, token: data.data.token })
+            setError('')
+        },
+        onError: (error) => {
+            setError(error.response && error.response.data.message
+                ? error.response.data.message : error.message)
+        }
+    })
+
 
     if (state.transition !== 2) return null
     return (
@@ -32,12 +56,12 @@ const Signup2 = ({ state, setState }) => {
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId='newPassword'>
-                            <Form.Control type='newPassword' placeholder='Password' value={state.newPassword} required
+                            <Form.Control type='password' placeholder='Password' value={state.newPassword} required
                                 onChange={(e) => setState({ ...state, newPassword: e.target.value })}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId='confirmPassword'>
-                            <Form.Control type='confirmPassword' placeholder='Confirm Password' value={state.confirmPassword} required
+                            <Form.Control type='password' placeholder='Confirm Password' value={state.confirmPassword} required
                                 onChange={(e) => setState({ ...state, confirmPassword: e.target.value })}>
                             </Form.Control>
                         </Form.Group>

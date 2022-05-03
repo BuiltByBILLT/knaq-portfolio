@@ -1,5 +1,7 @@
+import axios from 'axios'
+import { useMutation } from 'react-query'
 import React, { useState } from 'react'
-import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import { Alert, Button, Col, Form, ProgressBar, Row } from 'react-bootstrap'
 
 const Signup0 = ({ state, setState }) => {
 
@@ -7,13 +9,28 @@ const Signup0 = ({ state, setState }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
+        // mutate()
         setState({ ...state, transition: 1 })
     }
+
+    const { mutate, isLoading } = useMutation(() => {
+        return axios.post('https://api.knaqapp.com/api/auth/code_request', { phoneNumber: state.phoneNumber })
+    }, {
+        onSuccess: (data) => {
+            console.log(data.data)
+            setState({ ...state, transition: 1 })
+            setError('')
+        },
+        onError: (error) => {
+            setError(error.response && error.response.data.message
+                ? error.response.data.message : error.message)
+        }
+    })
 
     if (state.transition !== 0) return null
     return (
         <div className="">
-            <h1 className="text-center mb-4" style={{ fontSize: "72px", }}>Enter Email and Phone</h1>
+            <h1 className="text-center mb-4" style={{ fontSize: "72px", }}>Enter Phone Number</h1>
             <Row className="mx-3">
                 <Col className="px-1"><ProgressBar variant="success" now={100} key={0} /></Col>
                 <Col className="px-1"><ProgressBar variant="success" now={0} key={1} /></Col>
@@ -22,23 +39,18 @@ const Signup0 = ({ state, setState }) => {
                 <Col className="px-1"><ProgressBar variant="success" now={0} key={4} /></Col>
             </Row>
 
-            <p className='text-center my-5' style={{ fontSize: "20px" }}>Please enter your email and phone number</p>
+            <p className='text-center mt-5 mb-3' style={{ fontSize: "20px" }}>Please enter your phone number to recieve an authentication code</p>
 
             <Row>
                 <Col xs={12} lg={{ span: 6, offset: 3 }}>
-                    {error ? <Alert variant='danger'>{error}</Alert> : <div style={{}} />}
+                    {error && <Alert variant='danger'>{error}</Alert>}
                     <Form onSubmit={submitHandler} className="">
-                        <Form.Group controlId='email'>
-                            <Form.Control type='email' placeholder='Email' value={state.email} required
-                                onChange={(e) => setState({ ...state, email: e.target.value })}>
-                            </Form.Control>
-                        </Form.Group>
                         <Form.Group controlId='phone'>
-                            <Form.Control type='phone' placeholder='Phone Number' value={state.phone} required
-                                onChange={(e) => setState({ ...state, phone: e.target.value })}>
+                            <Form.Control type='phone' placeholder='Phone Number' value={state.phoneNumber} required
+                                onChange={(e) => setState({ ...state, phoneNumber: e.target.value })}>
                             </Form.Control>
                         </Form.Group>
-                        <Button variant="info" block className="mt-4 mb-3" disabled={!state.phone || !state.email}
+                        <Button variant="info" block className="mt-4 mb-3" disabled={!state.phoneNumber}
                             type="submit">
                             Next
                         </Button>
