@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Button, Col, Form, ProgressBar, Row } from 'react-bootstrap'
 import { UserContext } from '../contexts/UserContext'
-import { useMutation } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import axios from 'axios'
 import UploadPhotoModal from './UploadPhotoModal'
 import UploadVideoModal from './UploadVideoModal'
 import ComingSoon from './ComingSoon'
+import Post from './Post'
 
-const NewPost = ({ refetchFree, refetchSub }) => {
+const NewPost = () => {
 
     const user = useContext(UserContext)
     const [write, setWrite] = useState(false);
@@ -22,7 +23,17 @@ const NewPost = ({ refetchFree, refetchSub }) => {
     const [videoFile, setVideoFile] = useState("")
     const [uploadProgress, setUploadProgress] = useState(0)
 
-    const URL = "https://api.knaqapp.com/api"
+    const [newPostId, setNewPostId] = useState("")
+
+    // Temp: myFeed to include my Posts
+    const { data: newPostData } = useQuery([`newPost`, newPostId], () =>
+        axios.get(`https://api.knaqapp.com/api/post/${newPostId}`,
+            { headers: { Authorization: `Bearer ${user.token}` }, }
+        ),
+        { enabled: !!newPostId, }
+    )
+    // Temp: myFeed to include my Posts
+
     const { mutate, isLoading, reset } = useMutation(() => {
         const formData = new FormData()
         formData.append('text', postText)
@@ -30,7 +41,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
         pictureArray.forEach(pic => formData.append('image', pic.blob))
         if (videoFile) formData.append('video', videoFile)
 
-        return axios.post(`${URL}/post/publish`, formData,
+        return axios.post(`https://api.knaqapp.com/api/post/publish`, formData,
             {
                 headers: { Authorization: `Bearer ${user.token}` },
                 onUploadProgress: progressEvent => {
@@ -41,6 +52,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
     }, {
         onSuccess: (data) => {
             console.log(data.data)
+            setNewPostId(data.data.data.postId)
             setWrite(``)
             setPostText(``)
             setChecked(false)
@@ -48,8 +60,6 @@ const NewPost = ({ refetchFree, refetchSub }) => {
             setVideoFile('')
             setUploadProgress(0)
             reset()
-            refetchFree()
-            refetchSub()
         },
     })
 
@@ -209,9 +219,7 @@ const NewPost = ({ refetchFree, refetchSub }) => {
                 </Col>
             </Row>
 
-
-
-
+            {newPostData?.data?.data && <Post post={newPostData.data.data} />}
 
         </div>
     )

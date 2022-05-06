@@ -1,72 +1,54 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { useQuery } from 'react-query'
+import { useInfiniteQuery } from 'react-query'
 import NewPost from '../components/NewPost'
 import Post from '../components/Post'
 import TripleCol from '../components/TripleCol'
 import axios from 'axios'
-import { UserContext, UserContextUpdate } from '../contexts/UserContext'
-import { offlinePost } from '../util/offlineData'
+import { UserContext } from '../contexts/UserContext'
 
 export const Home = () => {
 
+    console.log("HomeScreen")
+
     const user = useContext(UserContext)
-    const userUpdate = useContext(UserContextUpdate)
 
-    const [posts, setPosts] = useState([])
-    const [feed, setFeed] = useState([]);
-    const [free, setFree] = useState([]);
-    const [paid, setPaid] = useState([]);
-
-    const { isLoading, data, refetch } = useQuery('myHomeFeed', () => {
-        // console.log(user.id)
-        return axios.get(`https://api.knaqapp.com/api/post/posts?userId=${user.id}&isMyFeed=true`, {
-            // return axios.get(`/post/posts`, {
+    const fetchFeed = async ({ pageParam = 0 }) => {
+        return axios.get(`https://api.knaqapp.com/api/post/posts?isMyFeed=true&start=${pageParam}`, {
             headers: { Authorization: `Bearer ${user.token}` }
         })
-    }, {
-        onSuccess: (data) => {
-            let raw = data.data.data.posts
-            setFeed([...raw])
-        }
-    })
+    }
 
-    const { refetch: refetchFree } = useQuery(`userFree`, () => {
-        return axios.get(`https://api.knaqapp.com/api/post/posts?otherId=${user.id}&isFree=true`, {
-            headers: { Authorization: `Bearer ${user.token}` }
-        })
-    }, {
-        onSuccess: (data) => {
-            let raw = data.data.data.posts
-            setFree([...raw])
-        },
-    })
-
-    const { refetch: refetchSub } = useQuery(`userSub`, () => {
-        return axios.get(`https://api.knaqapp.com/api/post/posts?otherId=${user.id}&isFree=false`, {
-            headers: { Authorization: `Bearer ${user.token}` }
-        })
-    }, {
-        onSuccess: (data) => {
-            let raw = data.data.data.posts
-            setPaid([...raw])
-        },
+    const { data, fetchNextPage } = useInfiniteQuery('myHomeFeed', fetchFeed, {
+        getNextPageParam: (_lastPage, allPages) => { return allPages.length }
     })
 
     useEffect(() => {
-        setPosts([...feed, ...free, ...paid].sort((a, b) => {
-            let aDate = new Date(a.updatedAt)
-            let bDate = new Date(b.updatedAt)
-            return bDate - aDate
-        }))
-    }, [feed, free, paid])
+        let fetching = false;
+        const onScroll = async (event) => {
+            const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
+
+            if (!fetching && scrollHeight - scrollTop <= clientHeight * 2) {
+                fetching = true;
+                await fetchNextPage();
+                fetching = false;
+            }
+        };
+
+        document.addEventListener("scroll", onScroll)
+        return () => { document.addEventListener("scroll", onScroll) }
+    }, [])
 
     return (
         <Container>
             <TripleCol>
-                <NewPost refetchFree={refetchFree} refetchSub={refetchSub} />
-                {posts.map(post => <Post key={post.id} post={post} />)}
-                <h3 className="text-center text-muted my-5">No More Posts</h3>
+                <NewPost />
+                {data?.pages?.map(pages =>
+                    pages?.data?.data?.posts?.map(post =>
+                        <Post key={post.id} post={post} />
+                    )
+                )}
+                <h3 className="text-center text-muted my-5">Loading More Posts</h3>
             </TripleCol>
         </Container >
     )

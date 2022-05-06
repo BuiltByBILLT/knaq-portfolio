@@ -37,6 +37,8 @@ const PostExploreThumb = ({ post }) => {
             {post.text}</div>
     )
 
+    return null
+
 }
 
 export default PostExploreThumb
