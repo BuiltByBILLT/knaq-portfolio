@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { useQuery, useMutation } from 'react-query'
+import { Alert, Button, Col, ProgressBar, Row } from 'react-bootstrap'
+import { useMutation } from 'react-query'
 import axios from 'axios'
 import UploadPhotoModal from './UploadPhotoModal';
 
@@ -76,13 +75,13 @@ const Signup5 = ({ state, setState }) => {
                         }
                     </div>
 
-                    {!cropAvatarUrl && <Button variant="info" block className="mt-5 mb-3" disabled={!state.code}
+                    {!cropAvatarUrl && <Button variant="info" block className="mt-5 mb-3"
                         type="button" onClick={() => setShowAvatar(true)}>
                         Add Photo
                     </Button>}
-                    {cropAvatarUrl && <Button variant="success" block className="mt-5 mb-3" disabled={!state.code}
+                    {cropAvatarUrl && <Button variant="success" block className="mt-5 mb-3" disabled={isLoading}
                         type="button" onClick={submitHandler}>
-                        Finish
+                        {isLoading ? "Loading" : "Finish"}
                     </Button>}
                     <div className="text-center">
                         <a style={{ cursor: "pointer" }} className="text-center my-4" onClick={skipHandler}>

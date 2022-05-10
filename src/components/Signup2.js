@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import React, { useContext, useEffect, useState } from 'react'
+import { UserContextUpdate } from '../contexts/UserContext'
+import { Alert, Button, Col, Form, ProgressBar, Row } from 'react-bootstrap'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 
 const Signup2 = ({ state, setState }) => {
 
     const [error, setError] = useState("")
+    const userUpdate = useContext(UserContextUpdate)
 
+    //Account Is created before Terms of Service
     const submitHandler = (e) => {
         e.preventDefault()
-        setState({ ...state, transition: 3 })
-        // if (state.newPassword === state.confirmPassword) mutate()
-        // else setError("Passwords do not match")
+        if (state.newPassword === state.confirmPassword) mutate()
+        else setError("Passwords do not match")
     }
     useEffect(() => {
         setError('')
@@ -19,12 +21,13 @@ const Signup2 = ({ state, setState }) => {
 
     const { mutate, isLoading } = useMutation(() => {
         return axios.post(`https://api.knaqapp.com/api/signup`, {
-            username: state.username, password: state.newPassword, referralCode: state.referral
+            username: state.username, password: state.newPassword, referralCode: state.referral, phoneNumber: state.phoneNumber
         })
     }, {
         onSuccess: (data) => {
             console.log(data.data)
-            setState({ ...state, transition: 3, token: data.data.token })
+            setState({ ...state, transition: 3, token: data.data.data.token })
+            userUpdate({ type: "LOGIN", payload: data.data.data })
             setError('')
         },
         onError: (error) => {
@@ -70,9 +73,11 @@ const Signup2 = ({ state, setState }) => {
                                 onChange={(e) => setState({ ...state, referral: e.target.value })}>
                             </Form.Control>
                         </Form.Group>
-                        <Button variant="info" block className="mt-4 mb-3" disabled={!state.username || !state.newPassword || !state.confirmPassword}
-                            type="submit"
-                        >Next</Button>
+                        <Button variant="info" block className="mt-4 mb-3"
+                            disabled={!state.username || !state.newPassword || !state.confirmPassword || isLoading}
+                            type="submit">
+                            {isLoading ? "Loading" : "Next"}
+                        </Button>
                     </Form>
                 </Col>
             </Row>

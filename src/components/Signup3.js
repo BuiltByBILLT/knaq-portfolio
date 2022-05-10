@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import React from 'react'
+import { Button, Col, ProgressBar, Row } from 'react-bootstrap'
 
 const Signup3 = ({ state, setState }) => {
 
@@ -34,7 +34,8 @@ const Signup3 = ({ state, setState }) => {
                     </p>
                     <Button variant="info" block className="mt-4 mb-3" disabled={!state.code}
                         type="button" onClick={submitHandler}
-                    >Next</Button>
+                    >Next
+                    </Button>
 
                 </Col>
             </Row>

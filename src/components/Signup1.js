@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import { Alert, Button, Col, Form, ProgressBar, Row } from 'react-bootstrap'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 
@@ -10,18 +10,19 @@ const Signup1 = ({ state, setState }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // mutate()
-        setState({ ...state, transition: 2 })
+        mutate()
+        // setState({ ...state, transition: 2 })
     }
 
     const { mutate, isLoading } = useMutation(() => {
-        return axios.post(`https://api.knaqapp.com/api/auth/code_check`,
+        // return axios.post(`https://api.knaqapp.com/api/auth/code_check`,
+        return axios.post(`https://api.knaqapp.com/api/auth/forgot_code_check`,
             { phoneNumber: state.phoneNumber, code: state.code }
         )
     }, {
         onSuccess: (data) => {
             console.log(data.data)
-            // setState({ ...state, transition: 2 })
+            setState({ ...state, transition: 2 })
             setError('')
         },
         onError: (error) => {
@@ -30,6 +31,7 @@ const Signup1 = ({ state, setState }) => {
         }
     })
 
+    // Resend Code
     const { mutate: resendHandler } = useMutation(() => {
         return axios.post(`https://api.knaqapp.com/api/auth/code_request`,
             { phoneNumber: state.phoneNumber }
@@ -62,7 +64,7 @@ const Signup1 = ({ state, setState }) => {
             <p className='text-center my-5' style={{ fontSize: "20px" }}>Please enter your code below</p>
             {!resent && <p className="text-center my-4 text-info" style={{ fontSize: "20px", cursor: "pointer" }}
                 onClick={resendHandler}>Resend Code</p>}
-            {resent && <p className="text-center my-4 text-info" style={{ fontSize: "20px" }}>Sent Again</p>}
+            {resent && <p className="text-center my-4 text-info" style={{ fontSize: "20px" }}>Sent Again to: {state.phoneNumber}</p>}
 
             <Row>
                 <Col xs={12} lg={{ span: 6, offset: 3 }}>
@@ -73,9 +75,10 @@ const Signup1 = ({ state, setState }) => {
                                 onChange={(e) => setState({ ...state, code: e.target.value })}>
                             </Form.Control>
                         </Form.Group>
-                        <Button variant="info" block className="mt-4 mb-3" disabled={!state.code}
-                            type="submit"
-                        >Next</Button>
+                        <Button variant="info" block className="mt-4 mb-3" disabled={state.code.length < 6 || isLoading}
+                            type="submit">
+                            {isLoading ? "Loading" : "Next"}
+                        </Button>
                     </Form>
                 </Col>
             </Row>

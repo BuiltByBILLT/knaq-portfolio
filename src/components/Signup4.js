@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Button, Col, Container, Form, ProgressBar, Row } from 'react-bootstrap'
+import { Alert, Button, Col, ProgressBar, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Signup4 = ({ state, setState }) => {
