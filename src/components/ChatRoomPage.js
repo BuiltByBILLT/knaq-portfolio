@@ -63,15 +63,11 @@ const ChatRoomPage = () => {
     // Keep input focused and messages scrolled down
     const myScreen = useRef(); // passed to ChatMessages
     const chatbar = useRef();
-    useEffect(() => {
-        if (!nav.chatSettings) chatbar.current.focus();
-    }, [message, raw]);
-
+    useEffect(() => { if (!nav.chatSettings) chatbar.current.focus(); }, [message, raw]);
 
     // Autosize ChatBar
-    useEffect(() => {
-        autosize(chatbar.current)
-    })
+    useEffect(() => { autosize(chatbar.current) }, [])
+    useEffect(() => { chatbar.current.dispatchEvent(new Event('autosize:update', { 'bubbles': true })); }, [message])
 
     // Handlers
     const submitHandler = (e) => {
@@ -113,7 +109,8 @@ const ChatRoomPage = () => {
                                     e.target.form.dispatchEvent(new Event("submit", { 'bubbles': true }));
                                     e.preventDefault();
                                 }
-                            }} />
+                            }}
+                        />
                     </Form>
                 </Col>
                 <Col xs="auto" className="text-info" style={{ cursor: "pointer", marginBottom: "3px" }}

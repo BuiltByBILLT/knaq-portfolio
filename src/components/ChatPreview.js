@@ -59,10 +59,14 @@ const ChatPreview = ({ room }) => {
                     </Row>
                     <Row className={room.lastMessage ? room.lastMessage.id === room.lastReadMessageId ? "text-muted" : "font-weight-bold" : "text-muted"}
                         style={{ fontSize: "12px" }}>
-                        {prefix} {room.lastMessage
-                            ? room.lastMessage.type == "post"
-                                ? "Shared a post" : room.lastMessage.text
-                            : `Chat Room Created`}
+                        <Col className='pl-0'>
+                            <div style={{ overflow: "hidden", wordBreak: "break-all", height: "1rem" }}>
+                                {prefix} {room.lastMessage
+                                    ? room.lastMessage.type == "post"
+                                        ? "Shared a post" : room.lastMessage.text
+                                    : `Chat Room Created`}
+                            </div>
+                        </Col>
                     </Row>
                     {room.memberCount > 2 &&
                         <Row className="mt-2">
