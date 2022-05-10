@@ -1,5 +1,4 @@
 .hiddenScroll {
-  /* height: calc(100vh - 60px); */
   overflow-y: scroll;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */

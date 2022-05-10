@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useState } from 'react';
 import { NavContext } from '../contexts/NavContext';
 import autosize from 'autosize'
+import "../hiddenScroll.css"
 
 const ChatRoomPage = () => {
     console.log("page")
@@ -82,7 +83,7 @@ const ChatRoomPage = () => {
             <div className="fadedTop"></div>
             <div ref={myScreen}
                 className="hiddenScroll px-2 pb-2 d-flex flex-column align-items-bottom"
-                style={{ height: "calc(100vh - 60px - 50px)", overflowY: "scroll", }}
+                style={{ height: "calc(100vh - 60px - 50px)" }}
             >
                 <ChatMessages raw={raw} myScreen={myScreen} />
             </div>

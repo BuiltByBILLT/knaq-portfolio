@@ -55,11 +55,16 @@ const ChatMessages = ({ raw, myScreen }) => {
     }, [raw]);
 
     const forceDown = (el) => {
+        // console.log("scrollcheck set")
         const id = setInterval(() => {
-            // console.log("scrollcheck")
-            // console.log(el.scrollHeight, el.clientHeight, el.scrollTop, el.scrollHeight - el.scrollTop)
-            if (el.scrollHeight - el.scrollTop - el.clientHeight > 10) { el.scrollTo(0, 1000000000) }
-            else (clearInterval(id))
+            // console.log("scroll", el.scrollHeight, "top", el.scrollTop, "client", el.clientHeight,)
+            // console.log(el.scrollHeight - el.scrollTop - el.clientHeight)
+            el.scrollTo(0, 1000000000)
+            if (el.scrollHeight - el.scrollTop - el.clientHeight > 10) {
+                console.log("force")
+                el.scrollTo(0, 1000000000)
+            }
+            else { clearInterval(id) }
         }, 500)
     }
 
