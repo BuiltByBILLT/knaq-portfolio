@@ -118,7 +118,7 @@ const Post = ({ hideTop, post }) => {
 
             {!textOnly && <p className="mb-2"><strong>{post.user.username} </strong>{post.text}</p>}
 
-            <p className="text-muted mb-0">{moment(post.updatedAt).fromNow()}</p>
+            <p className="text-muted mb-0">{post.updatedAt && moment(post.updatedAt).fromNow()}</p>
         </div >
     )
 }
