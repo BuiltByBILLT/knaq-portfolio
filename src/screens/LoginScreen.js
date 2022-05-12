@@ -5,6 +5,7 @@ import { useMutation } from 'react-query'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { UserContext, UserContextUpdate } from '../contexts/UserContext'
+import ComingSoon from '../components/ComingSoon'
 
 const API_URL = "https://api.knaqapp.com/api"
 
@@ -70,7 +71,7 @@ const Login = () => {
                                 </Form.Control>
                             </Form.Group>
                             <Form.Group controlId='remember'>
-                                <Form.Check id='remember' type='checkbox' checked={remember} label="Remember Me"
+                                <Form.Check id='remember' type='checkbox' checked={remember} label="Remember Me for 30 Days"
                                     className="my-3"
                                     onChange={(e) => setRemember(e.target.checked)}>
                                 </Form.Check>
@@ -80,13 +81,16 @@ const Login = () => {
                             </Button>
                         </Form>
 
-                        <Link to={'/forgot'}>
-                            <h5 className="text-center my-2">Forgot Password</h5>
-                        </Link>
-                        <p className="text-center text-muted my-0">- or -</p>
                         <Link to={'/signup'}>
                             <h5 className="text-center my-2">Sign Up</h5>
                         </Link>
+                        <p className="text-center text-muted my-0">- or -</p>
+                        {/* <Link to={'/forgot'}> */}
+                        <ComingSoon direction='bottom'>
+                            <Link to={'#'}>
+                                <h5 className="text-center my-2">Forgot Password</h5>
+                            </Link>
+                        </ComingSoon>
                     </Card>
                 </Col>
             </Row>
