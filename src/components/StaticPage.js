@@ -23,13 +23,16 @@ const StaticPage = ({ children }) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <ComingSoon direction='left'>
+                        {/* <ComingSoon direction='left'>
                             <button className="m-0 px-3" style={{ color: "grey", border: "none", backgroundColor: "#0000" }}
                                 onClick={() => { setClicks(clicks + 1) }}>
                                 Login
                             </button>
-                        </ComingSoon>
+                        </ComingSoon> */}
 
+                        <LinkContainer to="/login">
+                            <Nav.Link><div className="mt-1 px-3">Login</div></Nav.Link>
+                        </LinkContainer>
                         <Nav.Link active={false} target="_blank" href="http://www.instagram.com/knaqapp"><i className="px-3 fa-2x fab fa-instagram"></i></Nav.Link>
                         <Nav.Link active={false} target="_blank" href="http://www.twitter.com/knaqapp"><i className="px-3 fa-2x fab fa-twitter"></i></Nav.Link>
                         <Nav.Link active={false} target="_blank" href="https://discord.gg/H4TAHRGNHR"><i className="px-3 fa-2x fab fa-discord"></i></Nav.Link>
