@@ -3,8 +3,8 @@ import { Col, Row } from 'react-bootstrap'
 
 const WalletSummary = () => {
     return (
-        <div className="m-5">
-            <h5 className="border-bottom" style={{ marginLeft: "-15px" }}><strong>Engagement Summary</strong></h5>
+        <div className="mt-3 mx-2">
+            <h5 className="border-bottom" style={{ marginLeft: "0px" }}><strong>Engagement Summary</strong></h5>
             <h5 className="mt-3">My Earnings:</h5>
             <Row>
                 <Col>

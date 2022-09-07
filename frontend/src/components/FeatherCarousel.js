@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import { Button, Carousel, Col, Row } from 'react-bootstrap'
+import StripeModal from './StripeModal'
 
 const FeatherCarousel = () => {
     // const [dollarEnter, setDollarEnter] = useState(false)
     // const [featherEnter, setFeatherEnter] = useState(false)
     const [dollarNOTfeather, setDollarNOTfeather] = useState(true)
+    const [stripeShow, setStripeShow] = useState(false)
 
     return (
 
         < div >
+            <StripeModal show={stripeShow} setShow={setStripeShow} />
             <Row className="my-0">
                 <Col className="text-center">
                     {dollarNOTfeather
@@ -38,7 +41,9 @@ const FeatherCarousel = () => {
                         <Button variant="info" className="py-2 px-0" style={{ width: "120px" }}>Send Money</Button>
                     </Col>
                     <Col xs="auto">
-                        <Button variant="outline-info" className="py-2 px-0" style={{ width: "120px" }}>Receive Money</Button>
+                        <Button variant="outline-info" className="py-2 px-0" style={{ width: "120px" }}
+                            onClick={() => { setStripeShow(true) }}
+                        >Receive Money</Button>
                     </Col>
                 </Row>
                 : <Row className="mt-5 justify-content-center">

@@ -40,6 +40,7 @@ function App() {
           <ProtectedRoute path="/explore" exact component={ExploreScreen} />
           <ProtectedRoute path="/notifications" exact component={NotificationsScreen} />
           <ProtectedRoute path="/wallet" exact component={WalletScreen} />
+          <ProtectedRoute path="/wallet/:stripe" exact component={WalletScreen} />
           <ProtectedRoute path="/test" exact component={TestScreen} />
           <Route><NotFoundScreen /></Route>
         </Switch>

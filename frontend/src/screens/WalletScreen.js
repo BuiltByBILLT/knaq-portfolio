@@ -36,10 +36,10 @@ export const Wallet = () => {
                         </div>
                     </Row>
                     <FeatherCarousel />
-                    <WalletSummary />
+                    <WalletHistory />
                 </Col>
                 <Col xs={3} className="">
-                    <WalletHistory />
+                    <WalletSummary />
                 </Col>
             </Row>
         </Container >
