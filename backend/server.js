@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import "express-async-errors"
 import { errorHandler, notFound } from './middleware.js/errorMiddleware.js'
-import { stripeCreateSession } from './controllers/controllers.js'
+import { manualWaitlist, stripeCreateSession } from './controllers/controllers.js'
 
 dotenv.config()
 const app = express()
@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === 'production') { app.use(morgan('dev')) }
 
 app.use('/api/users', (req, res) => { res.send("Users") })
 app.post('/create-checkout-session', stripeCreateSession)
+app.post('/api/manualWaitlist', manualWaitlist)
 
 if (process.env.NODE_ENV === 'production') {
     const __dirname = path.resolve()
