@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.css';
+import './index.css';
+import './fontsAndColors.css'
+
+import './fonts/Adrianna-Regular.ttf'
+import './fonts/Adrianna-BoldItalic.ttf'
+import './fonts/SourceCodePro-Regular.ttf'
+import './fonts/SourceCodePro-Bold.ttf'
+
 import App from './App';
 import { NavContextProvider } from './contexts/NavContext.js';
 import { UserContextProvider } from './contexts/UserContext.js';

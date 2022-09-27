@@ -18,6 +18,9 @@ import PromoScreen from "./screens/PromoScreen";
 import PrivacyScreen from "./screens/PrivacyScreen";
 import TermsScreen from "./screens/TermsScreen";
 import FaqScreen from "./screens/FaqScreen";
+import LandingScreen from "./screens/LandingScreen";
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -26,6 +29,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/" exact component={PromoScreen} />
+          <Route path="/landing" exact component={LandingScreen} />
           {/* <ProtectedRoute path="/" exact component={Home} /> */}
           <Route path="/home" exact component={HomeScreen} />
           <Route path="/privacy" exact component={PrivacyScreen} />

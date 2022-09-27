@@ -149,3 +149,57 @@ main {
 }
 
 /* Quotes End */
+
+/* Rombus */
+.rombus {
+  height: 450px; 
+  border-radius: 15px;  
+  position: relative;
+  overflow: hidden;
+}
+.rombus::before {
+  content: "";
+  background-repeat: no-repeat; 
+  background-size: cover !important; 
+  
+  position: absolute;
+  width: 100%; /* something ridiculously big */
+  height: 110%; /* something ridiculously big */
+}
+
+.rombus-left{
+  transform: skewY(8deg); 
+  transform-origin: top left;
+}
+.rombus-left::before{
+  transform: skewY(-8deg); 
+  transform-origin: top left;
+}
+.rombus-right{
+  transform: skewY(-8deg); 
+  transform-origin: top right;
+}
+.rombus-right::before{
+  transform: skewY(8deg); 
+  transform-origin: top right;
+}
+
+.rombus-girl::before{
+  background: linear-gradient(to top, #392269bc, #392269bc), url('backgrounds/girls-engage.jpeg');
+  background-position: 40% 10%;
+}
+.rombus-tokens::before{
+  /* background-image: url('backgrounds/token-box.jpeg');  */
+  background: linear-gradient(to top, #392269bc, #392269bc), url('backgrounds/token-box.jpeg');
+  background-position: 45% 10%; 
+}
+.rombus-meetup::before{
+  background: linear-gradient(to top, #392269bc, #392269bc), url('backgrounds/meetup.jpeg'); 
+  background-position: 75% center; 
+}
+
+/* social icons */
+.social-icons {
+  height:30px;
+}
+/* social icons end */
