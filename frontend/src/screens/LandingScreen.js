@@ -25,7 +25,7 @@ const LandingScreen = () => {
                 {/* <Navbar> */}
 
                 <Nav className="">
-                    <Nav.Link className="ml-3 mt-3" active={false} href="/landing"><img src="images/Logo-Full.png" style={{ width: "150px" }}></img></Nav.Link>
+                    <Nav.Link className="ml-3 mt-3" active={false} href="/"><img src="images/Logo-Full.png" style={{ width: "150px" }}></img></Nav.Link>
                     <Nav.Link className="px-1 mt-3 ml-auto" active={false} target="_blank" href="https://discord.gg/H4TAHRGNHR"><img className="social-icons" src="./icons/discord_icon.png" /></Nav.Link>
                     <Nav.Link className="px-1 mt-3 " active={false} target="_blank" href="http://www.instagram.com/knaqapp"><img className="social-icons" src="./icons/instagram_icon.png" /></Nav.Link>
                     <Nav.Link className="px-1 mt-3 mr-3" active={false} target="_blank" href="http://www.twitter.com/knaqapp"><img className="social-icons" src="./icons/twitter_icon.png" /></Nav.Link>

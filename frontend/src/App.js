@@ -28,8 +28,9 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <Route path="/" exact component={PromoScreen} />
+          <Route path="/" exact component={LandingScreen} />
           <Route path="/landing" exact component={LandingScreen} />
+          <Route path="/promo" exact component={PromoScreen} />
           {/* <ProtectedRoute path="/" exact component={Home} /> */}
           <Route path="/home" exact component={HomeScreen} />
           <Route path="/privacy" exact component={PrivacyScreen} />
