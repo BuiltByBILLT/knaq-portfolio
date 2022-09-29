@@ -39,8 +39,8 @@ const LandingScreen = () => {
                 </Nav>
                 {/* </Navbar> */}
 
-                <Container id="hero" className="pb-5">
-                    <Row className='py-5 px-2 px-lg-4'>
+                <Container id="hero" className="">
+                    <Row className='pt-4 py-lg-5 px-0 px-lg-4'>
                         <Col xs={12} lg={{ span: 10, offset: 1 }} className="my-auto">
                             <div>
                                 <h1 className="mt-lg-5 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>
@@ -157,7 +157,7 @@ const LandingScreen = () => {
                                 Supercharging communities with Web3
                             </h1>
                             <p className="my-5" style={{ textAlign: "center", fontSize: "20px" }}>
-                                Your every interaction will pay off in a big way.
+                                Your every interaction will pay off in a big way
                             </p>
                         </Col> </Row>
                     </Container>
@@ -235,7 +235,7 @@ const LandingScreen = () => {
                                 Fandom is no longer a one way street
                             </p>
                             <p className="mb-4" style={{ textAlign: "center", fontSize: "20px", maxWidth: "750px" }}>
-                                Knaq bridges the gap and allows communities to earn and grow alongside their favorite creators.
+                                Knaq bridges the gap and allows communities to earn and grow alongside their favorite creators
                             </p>
                         </Col></Row>
                     </Container>
