@@ -44,11 +44,9 @@ const LandingScreen = () => {
                         <Col xs={12} lg={{ span: 10, offset: 1 }} className="my-auto">
                             <div>
                                 <h1 className="mt-lg-5 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>
-                                    Creating a deeper connection between fans and creators
+                                    The loyalty platform that rewards fans and strenthens communities
                                 </h1>
-                                <p className="my-4 my-lg-5">The loyalty platform that rewards fans and strenthens communities</p>
-                                <p className="">Its about time fans get something in return!</p>
-                                <p className="mb-4 mb-lg-5 ">Earn tokens when you engage with your favorite creators </p>
+                                <p className="my-4 my-lg-5">Its about time fans get something in return!</p>
                                 {error && <Alert variant='danger'>{error}</Alert>}
                                 {success
                                     ? <Alert variant="success" className="mx-5" style={{}}>Subscribed! Check your email for upcoming updates.</Alert>
