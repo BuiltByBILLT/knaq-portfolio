@@ -28,9 +28,9 @@ const LandingScreen = () => {
     return (
         <>
             {dev && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>{isLarge ? "Large" : isMedium ? "Medium" : "Small"}</div>}
-            <div id="hero" style={{ backgroundImage: "url('images/BG1.jpg')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }}>
-                {/* <Navbar> */}
+            <div id="tan" style={{ backgroundImage: "url('images/BG1.jpg')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }}>
 
+                {/* <Navbar> */}
                 <Nav className="">
                     <Nav.Link className="ml-3 mt-3" active={false} href="/"><img src="images/Logo-Full.png" style={{ width: "150px" }}></img></Nav.Link>
                     <Nav.Link className="px-1 mt-3 ml-auto" active={false} target="_blank" href="https://discord.gg/H4TAHRGNHR"><img className="social-icons" src="./icons/discord_icon.png" /></Nav.Link>
@@ -38,12 +38,17 @@ const LandingScreen = () => {
                     <Nav.Link className="px-1 mt-3 mr-3" active={false} target="_blank" href="http://www.twitter.com/knaqapp"><img className="social-icons" src="./icons/twitter_icon.png" /></Nav.Link>
                 </Nav>
                 {/* </Navbar> */}
-                <Container id="waitlist" className="pb-5">
+
+                <Container id="hero" className="pb-5">
                     <Row className='py-5 px-2 px-lg-4'>
                         <Col xs={12} lg={{ span: 10, offset: 1 }} className="my-auto">
                             <div>
-                                <h1 className="mt-5 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Creating a deeper connection between fans and creators</h1>
-                                <p className="my-4" style={{ textAlign: "center", fontSize: "20px" }}>Earn tokens when you engage with your favorite creators </p>
+                                <h1 className="mt-lg-5 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>
+                                    Creating a deeper connection between fans and creators
+                                </h1>
+                                <p className="my-4 my-lg-5">The loyalty platform that rewards fans and strenthens communities</p>
+                                <p className="">Its about time fans get something in return!</p>
+                                <p className="mb-4 mb-lg-5 ">Earn tokens when you engage with your favorite creators </p>
                                 {error && <Alert variant='danger'>{error}</Alert>}
                                 {success
                                     ? <Alert variant="success" className="mx-5" style={{}}>Subscribed! Check your email for upcoming updates.</Alert>
@@ -77,9 +82,9 @@ const LandingScreen = () => {
                     <Container>
                         <Row className="" style={{ color: "var(--tan)" }}>
                             <Col xs={12} lg={4} className="my-3 d-flex align-items-center justify-content-center">
-                                <h6>total users</h6>
+                                <h6>fans rewarded</h6>
                                 <img style={{ height: "35px" }} className="svg-icon mx-3" src="icons/users-icon.svg" />
-                                <h4>494,117</h4>
+                                <h4>1,408,922</h4>
                             </Col>
                             <Col xs={12} lg={4} className="my-3 d-flex align-items-center justify-content-center"
                                 style={{
@@ -88,12 +93,14 @@ const LandingScreen = () => {
                                 }} >
                                 <h6>payouts earned</h6>
                                 <img style={{ height: "35px" }} className="svg-icon mx-3" src="icons/money-icon.svg" />
-                                <h4>131,050</h4>
+                                <h6>coming soon!</h6>
+                                {/* <h4>131,050</h4> */}
                             </Col>
                             <Col xs={12} lg={4} className="my-3 d-flex align-items-center justify-content-center">
                                 <h6>loyalty earned</h6>
                                 <img style={{ height: "35px" }} className="svg-icon mx-3" src="icons/heart-icon.svg" />
-                                <h4>120,210</h4>
+                                <h6>coming soon!</h6>
+                                {/* <h4>120,210</h4> */}
                             </Col>
                         </Row>
                     </Container>
@@ -116,25 +123,25 @@ const LandingScreen = () => {
                         <Row id="rombus layer" className='pb-5 mx-0'>
                             <Col xs={12} lg={4}>
                                 <div className="rombus rombus-left rombus-girl">
-                                    <div className="pb-5 px-5 rombus-right d-flex flex-column align-items-center justify-content-center" >
-                                        <h1 className="mb-3 px-2">Interact & Earn Coins </h1>
-                                        <p className="px-2">Interact with your favorite creators to earn tokens</p>
+                                    <div className="pb-5 px-5 rombus-right flex-center" >
+                                        <h1 className="mb-3 px-2">Engage to Earn Tokens</h1>
+                                        <p className="px-2">Earn tokens for every like, share, subscription, and much more!</p>
                                     </div>
                                 </div>
                             </Col>
                             <Col xs={12} lg={4}>
                                 <div className="rombus rombus-right rombus-tokens">
-                                    <div className="pb-5 px-5 rombus-left d-flex flex-column align-items-center justify-content-center">
-                                        <h1 className="mb-3 px-2">Get Tiered Benefits</h1>
-                                        <p className="px-2">Accumulate tokens for tiered benefits</p>
+                                    <div className="pb-5 px-5 rombus-left flex-center">
+                                        <h1 className="mb-3 px-2">More Loyalty = More Rewards</h1>
+                                        <p className="px-2">Increase your tier and unlock airdrops, NFTs, and other exciting bonuses</p>
                                     </div>
                                 </div>
                             </Col>
                             <Col xs={12} lg={4}>
                                 <div className="rombus rombus-left rombus-meetup">
-                                    <div className="pb-5 px-5 rombus-right d-flex flex-column align-items-center justify-content-center">
-                                        <h1 className="mb-3 px-2">Redeem for Exclusives</h1>
-                                        <p className="px-2">Redeem tokens for exclusive experiences and merch</p>
+                                    <div className="pb-5 px-5 rombus-right flex-center">
+                                        <h1 className="mb-3 px-2">Exclusive Access via Token-Gating</h1>
+                                        <p className="px-2">Redeem tokens for merchandise, collectables, and experiences</p>
                                     </div>
                                 </div>
                             </Col>
@@ -146,73 +153,71 @@ const LandingScreen = () => {
             <div id="white background">
                 <div id="empower">
                     <Container className="mt-5">
-                        <Row className='py-4 px-4'>
-                            <Col lg={{ span: 10, offset: 1 }} className="my-auto">
-                                <div>
-                                    <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
-                                    <p className="my-4" style={{ textAlign: "center", fontSize: "20px" }}>Interact with your fans on a whole new level though easy to access channels where they can post commentary, fan art, and hot takes.</p>
-                                </div>
-                            </Col>
-                        </Row>
+                        <Row className='py-4 px-4'> <Col xs={12} lg={{ span: 10, offset: 1 }} className="my-auto">
+                            <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
+                            <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "650px" }}>
+                                Supercharging communities with Web3
+                            </h1>
+                            <p className="my-5" style={{ textAlign: "center", fontSize: "20px" }}>
+                                Scrolling through your feed will pay off in a big way
+                            </p>
+                        </Col> </Row>
                     </Container>
                 </div>
 
                 <div id="quad">
                     <Container>
                         <Row className='' style={{ color: "var(--indigo)" }}>
-                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
-                                <div className="py-5 rombus rombus-quad" style={{
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5 mt-2"}>
+                                <div className="py-md-5 pt-4 pb-5 rombus rombus-quad" style={{
                                     background: isLarge ? "linear-gradient(45deg, #f7ece1 75%, #cac4ce 100%)"
-                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
-
-                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)",
+                                    height: isLarge ? "350px" : isMedium ? "300px" : ""
                                 }}>
                                     <div className="px-3 rombus-quad-inner d-flex flex-column" >
                                         <img src="icons/star_icon.svg" style={{ width: "40px" }} />
-                                        <h1 className="my-3">Exclusive Content</h1>
-                                        <p>A convenient place for you and your fan community to chat and hang out</p>
+                                        <h1 className="my-3">Exclusive Access</h1>
+                                        <p>Access content you won't find anywhere else. Attend events only open for community members.</p>
+
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
-                                <div className="py-5 rombus rombus-quad" style={{
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5 mt-2"}>
+                                <div className="py-md-5 pt-4 pb-5  rombus rombus-quad" style={{
                                     background: isLarge ? "linear-gradient(45deg, #f7ece1 50%, #cac4ce 75%)"
-                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
-
-                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)",
+                                    height: isLarge ? "350px" : isMedium ? "300px" : ""
                                 }}>
                                     <div className="px-3 rombus-quad-inner d-flex flex-column">
                                         <img src="icons/chat_icon.svg" style={{ width: "40px" }} />
                                         <h1 className="my-3">DM's & Group Chats</h1>
-                                        <p>A way to show support to creators and value the fans that stay with you</p>
+                                        <p>Chat directly with creators and community members that share your passion.</p>
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
-                                <div className="py-5 rombus rombus-quad" style={{
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5 mt-2"}>
+                                <div className="py-md-5 pt-4 pb-5 rombus rombus-quad" style={{
                                     background: isLarge ? "linear-gradient(45deg, #f7ece1 25%, #cac4ce 50%)"
-                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
-                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)",
+                                    height: isLarge ? "350px" : isMedium ? "300px" : ""
                                 }}>
                                     <div className="px-3 rombus-quad-inner d-flex flex-column">
                                         <img src="icons/badge_icon.svg" style={{ width: "40px" }} />
                                         <h1 className="my-3">Badges</h1>
-                                        <p>Reward fans for engaging with you on Spotify, Twitch, Discord, and more</p>
+                                        <p>Earn a leading role in your favorite communities and the premium perks that come with it.</p>
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
-                                <div className="py-5 rombus rombus-quad" style={{
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5 mt-2"}>
+                                <div className="py-md-5 pt-4 pb-5 rombus rombus-quad" style={{
                                     background: isLarge ? "linear-gradient(45deg, #f7ece1 0%, #cac4ce 25%)"
-                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
-                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)",
+                                    height: isLarge ? "350px" : isMedium ? "300px" : ""
                                 }}>
-
                                     <div className="px-3 rombus-quad-inner d-flex flex-column">
                                         <img src="icons/picture_icon.svg" style={{ width: "40px" }} />
                                         <h1 className="my-3">NFTs</h1>
-                                        <p>The only platform that implements unqiue watermarks to prevent content leaks</p>
+                                        <p>Exclusive drops and collectables so you can show off your fandom.</p>
                                     </div>
                                 </div>
                             </Col>
@@ -222,17 +227,19 @@ const LandingScreen = () => {
 
                 <div id="join">
                     <Container className="py-5">
-                        <Row className='py-4 px-4'>
-                            <Col lg={{ span: 10, offset: 1 }} className="my-auto">
-                                <div>
-                                    <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
-                                    <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <p className="mt-4" style={{ textAlign: "center", fontSize: "20px" }}>It's time to showcase your personality now.</p>
-                                    <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>Create a KNAQ account in just a few minutes.</p>
-                                </div>
-                            </Col>
-                        </Row>
+                        <Row className='py-4 px-4'><Col xs={12} lg={{ span: 10, offset: 1 }} className="my-auto">
+                            <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
+                            <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>
+                                Join the most valuable communities on the planet
+                            </h1>
+                            <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
+                            <p className="mt-5" style={{ textAlign: "center", fontSize: "20px" }}>
+                                Fandom is no longer a one way street!
+                            </p>
+                            <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>
+                                Knaq bridges the gap and allows communities to earn and grow alongside their favorite creators
+                            </p>
+                        </Col></Row>
                     </Container>
                 </div>
             </div>
@@ -243,31 +250,42 @@ const LandingScreen = () => {
                     <Accordion defaultActiveKey="0" className="mx-lg-5 mb-4">
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="0">
-                                Why should I back-up my wallet?
+                                How does earning work?
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
-                                    Knaq is powered by blockchain and similar to all other Bitcoin, Ethereum, or crypto wallets, we are fully non-custodial and decentralized. This means we cannot touch your wallet and all the money you earn is fully in your control. But since we cannot access your wallet, we have no way of recovering funds. Simply write down your recovery phrase and keep it in a safe place in case you ever forget your password or lose your phone!
+                                    Every type of engagement on Knaq earns you tokens. You can check your earnings, airdrops, and other benefits directly from your wallet.
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="1">
-                                What crypto is inside the app?
+                                Where do I collect my exclusive perks?
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="1">
                                 <Card.Body>
-                                    We have built a way for you to deposit and withdraw any crypto from the list of supported ones. We will constantly be updating this list and making it more efficient for all of you.
+                                    Things such as airdrops, bonuses, and NFT packs will be sent directly into your wallet. You can redeem for exclusive experiences or content from directly inside the Creator’s portal.
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="2">
-                                How do I withdraw money from my wallet?
+                                Do I need a wallet?
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="2">
                                 <Card.Body>
-                                    On the bottom navigation panel, go to the Wallet tab on the far right. From there, click on Send Money and paste in the destination where you want to send your money. When asked, select the crypto you want to withdraw and press send. Your transaction will be cleared once it has been confirmed on the blockchain you are trying to send to.
+                                    No, if you do not have one, we will automatically make one for you upon sign-up.
+                                    <p className="mt-3">If you already have something like Metamask, that’s great! You can sign in using that or any other wallet we support.</p>
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="3">
+                                What blockchain are you built on?
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="3">
+                                <Card.Body>
+                                    Polygon. We chose this for the low fees and quick transaction speeds so you can focus on the content and rewards you came here for.
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>
@@ -292,49 +310,51 @@ const LandingScreen = () => {
                 </Container>
             </div>
 
-            {dev && <div id="black" style={{ backgroundColor: "#000" }}>
-                <Container id="roadmap" className="pb-5">
-                    <h1 className={isMedium ? "ml-5" : "text-center"} style={{ color: "var(--tan)" }}>Roadmap</h1>
-                    <Row className="mx-0">
-                        <Col xs={12} lg={{ span: 5, offset: 0 }} className="mt-5">
-                            <div className="border-box" style={{ background: "linear-gradient(90deg, #f662a7, #ff0000)" }}>
-                                <p className="cover-box pl-4 pt-2">Phase I</p>
-                            </div>
-                            <div className="floater" style={{ background: "linear-gradient(90deg, #f662a7, #ff0000)" }}>
-                                <h3 className="pl-4 pt-2">spring launch</h3>
-                            </div>
-                        </Col>
-                        <Col xs={12} lg={{ span: 4, offset: 1 }} className="mt-5">
-                            <div className="text" style={{
-                                height: "150px", border: "red 2px solid", width: "100%",
-                            }}></div>
-                        </Col>
-                    </Row>
-                    <Row className="mx-0">
-                        <Col xs={12} lg={{ span: 5, offset: 1 }}>
-                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
-                            </div>
-                        </Col>
-                        <Col xs={12} lg={{ span: 4, offset: 1 }}>
-                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+            {
+                dev && <div id="black" style={{ backgroundColor: "#000" }}>
+                    <Container id="roadmap" className="pb-5">
+                        <h1 className={isMedium ? "ml-5" : "text-center"} style={{ color: "var(--tan)" }}>Roadmap</h1>
+                        <Row className="mx-0">
+                            <Col xs={12} lg={{ span: 5, offset: 0 }} className="mt-5">
+                                <div className="border-box" style={{ background: "linear-gradient(90deg, #f662a7, #ff0000)" }}>
+                                    <p className="cover-box pl-4 pt-2">Phase I</p>
+                                </div>
+                                <div className="floater" style={{ background: "linear-gradient(90deg, #f662a7, #ff0000)" }}>
+                                    <h3 className="pl-4 pt-2">spring launch</h3>
+                                </div>
+                            </Col>
+                            <Col xs={12} lg={{ span: 4, offset: 1 }} className="mt-5">
+                                <div className="text" style={{
+                                    height: "150px", border: "red 2px solid", width: "100%",
+                                }}></div>
+                            </Col>
+                        </Row>
+                        <Row className="mx-0">
+                            <Col xs={12} lg={{ span: 5, offset: 1 }}>
+                                <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+                                </div>
+                            </Col>
+                            <Col xs={12} lg={{ span: 4, offset: 1 }}>
+                                <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
 
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row className="mx-0">
-                        <Col xs={12} lg={{ span: 5, offset: 2 }}>
-                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row className="mx-0">
+                            <Col xs={12} lg={{ span: 5, offset: 2 }}>
+                                <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
 
-                            </div>
-                        </Col>
-                        <Col xs={12} lg={{ span: 4, offset: 1 }}>
-                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+                                </div>
+                            </Col>
+                            <Col xs={12} lg={{ span: 4, offset: 1 }}>
+                                <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
 
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div >}
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div >
+            }
 
             <Navbar id='footer' bg="dark" variant="dark" style={{ marginTop: "-2px" }} className="py-5">
                 <Row style={{ width: "100%" }} className="mx-0">
