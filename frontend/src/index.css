@@ -152,7 +152,6 @@ main {
 
 /* Rombus */
 .rombus {
-  height: 450px; 
   border-radius: 15px;  
   position: relative;
   overflow: hidden;
@@ -203,18 +202,23 @@ main {
 
 .rombus-quad{
   background: linear-gradient(45deg, #f7ece1, #cac4ce);
-  height: 350px;
-  transform: skewY(3deg)
+  transform: skewY(4deg);
+  height: 100%
 }
 .rombus-quad-inner{
-  height: 350px;
-  transform: skewY(-3deg)
+  transform: skewY(-4deg)
 }
 .rombus h1{
   font-size:32px;
 }
 .rombus p{
   font-size:18px;
+}
+.rombus-quad h1{
+  font-size:28px;
+}
+.rombus-quad p{
+  font-size:16px;
 }
 
 

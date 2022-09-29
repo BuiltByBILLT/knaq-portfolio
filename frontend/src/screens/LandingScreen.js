@@ -12,6 +12,7 @@ const LandingScreen = () => {
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
 
+    const isMedium = useMediaQuery("(min-width: 768px)")
     const isLarge = useMediaQuery("(min-width: 992px)")
 
     const { mutate: waitlistHandler, isLoading } = useMutation((e) => {
@@ -24,7 +25,7 @@ const LandingScreen = () => {
 
     return (
         <>
-            {false && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>Is Large: {isLarge.toString()}</div>}
+            {true && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>{isLarge ? "Large" : isMedium ? "Medium" : "Small"}</div>}
             <div id="hero" style={{ backgroundImage: "url('images/BG1.jpg')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }}>
                 {/* <Navbar> */}
 
@@ -140,79 +141,103 @@ const LandingScreen = () => {
                 </Container>
             </div >
 
-            <div id="empower">
-                <Container className="mt-5">
-                    <Row className='py-5 px-4'>
-                        <Col lg={{ span: 10, offset: 1 }} className="my-auto">
-                            <div>
-                                <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
-                                <p className="my-4" style={{ textAlign: "center", fontSize: "20px" }}>Interact with your fans on a whole new level though easy to access channels where they can post commentary, fan art, and hot takes.</p>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+            <div id="white background">
+                <div id="empower">
+                    <Container className="mt-5">
+                        <Row className='py-4 px-4'>
+                            <Col lg={{ span: 10, offset: 1 }} className="my-auto">
+                                <div>
+                                    <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
+                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
+                                    <p className="my-4" style={{ textAlign: "center", fontSize: "20px" }}>Interact with your fans on a whole new level though easy to access channels where they can post commentary, fan art, and hot takes.</p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+
+                <div id="quad">
+                    <Container>
+                        <Row className='' style={{ color: "var(--indigo)" }}>
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
+                                <div className="py-5 rombus rombus-quad" style={{
+                                    background: isLarge ? "linear-gradient(45deg, #f7ece1 75%, #cac4ce 100%)"
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
+
+                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                }}>
+                                    <div className="px-3 rombus-quad-inner d-flex flex-column" >
+                                        <img src="icons/star_icon.svg" style={{ width: "40px" }} />
+                                        <h1 className="my-3">Exclusive Content</h1>
+                                        <p>A convenient place for you and your fan community to chat and hang out</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
+                                <div className="py-5 rombus rombus-quad" style={{
+                                    background: isLarge ? "linear-gradient(45deg, #f7ece1 50%, #cac4ce 75%)"
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
+
+                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                }}>
+                                    <div className="px-3 rombus-quad-inner d-flex flex-column">
+                                        <img src="icons/chat_icon.svg" style={{ width: "40px" }} />
+                                        <h1 className="my-3">DM's & Group Chats</h1>
+                                        <p>A way to show support to creators and value the fans that stay with you</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
+                                <div className="py-5 rombus rombus-quad" style={{
+                                    background: isLarge ? "linear-gradient(45deg, #f7ece1 25%, #cac4ce 50%)"
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
+                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                }}>
+                                    <div className="px-3 rombus-quad-inner d-flex flex-column">
+                                        <img src="icons/badge_icon.svg" style={{ width: "40px" }} />
+                                        <h1 className="my-3">Badges</h1>
+                                        <p>Reward fans for engaging with you on Spotify, Twitch, Discord, and more</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={12} md={6} lg={3} className={isMedium ? "px-1 mt-2" : "px-5"}>
+                                <div className="py-5 rombus rombus-quad" style={{
+                                    background: isLarge ? "linear-gradient(45deg, #f7ece1 0%, #cac4ce 25%)"
+                                        : "linear-gradient(45deg, #f7ece1 25%, #cac4ce)"
+                                    , height: isLarge ? "350px" : isMedium ? "300px" : ""
+                                }}>
+
+                                    <div className="px-3 rombus-quad-inner d-flex flex-column">
+                                        <img src="icons/picture_icon.svg" style={{ width: "40px" }} />
+                                        <h1 className="my-3">NFTs</h1>
+                                        <p>The only platform that implements unqiue watermarks to prevent content leaks</p>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+
+                <div id="join">
+                    <Container className="py-5">
+                        <Row className='py-4 px-4'>
+                            <Col lg={{ span: 10, offset: 1 }} className="my-auto">
+                                <div>
+                                    <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
+                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
+                                    <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
+                                    <p className="mt-4" style={{ textAlign: "center", fontSize: "20px" }}>It's time to showcase your personality now.</p>
+                                    <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>Create a KNAQ account in just a few minutes.</p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
             </div>
 
-            {false && <div id="quad">
-                <Container>
-                    {/* <div style={{ background: "linear-gradient(45deg, #f7ece1, #cac4ce)", width: "100%", height: "400px" }} /> */}
-                    <Row id="rombus layer" className='mx-0'>
-                        <Col className="p-1">
-                            <div className="rombus rombus-quad" style={{ background: "linear-gradient(45deg, #f7ece1 0%, #cac4ce 25%)" }}>
-                                <div className="pb-5 rombus-quad-inner d-flex flex-column align-items-center justify-content-center" >
-                                    <h1 className="mb-3 px-2">Interact & Earn Coins </h1>
-                                    <p className="px-2">Interact with your favorite creators to earn tokens</p>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col className="p-1">
-                            <div className="rombus rombus-quad" style={{ background: "linear-gradient(45deg, #f7ece1 25%, #cac4ce 50%)" }}>
-                                <div className="pb-5 rombus-quad-inner d-flex flex-column align-items-center justify-content-center">
-                                    <h1 className="mb-3 px-2">Get Tiered Benefits</h1>
-                                    <p className="px-2">Accumulate tokens for tiered benefits</p>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col className="p-1">
-                            <div className="rombus rombus-quad" style={{ background: "linear-gradient(45deg, #f7ece1 50%, #cac4ce 75%)" }}>
-                                <div className="pb-5 rombus-quad-inner d-flex flex-column align-items-center justify-content-center">
-                                    <h1 className="mb-3 px-2">Redeem for Exclusives</h1>
-                                    <p className="px-2">Redeem tokens for exclusive experiences and merch</p>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col className="p-1">
-                            <div className="rombus rombus-quad" style={{ background: "linear-gradient(45deg, #f7ece1 75%, #cac4ce 100%)" }}>
-                                <div className="pb-5 rombus-quad-inner d-flex flex-column align-items-center justify-content-center">
-                                    <h1 className="mb-3 px-2">Redeem for Exclusives</h1>
-                                    <p className="px-2">Redeem tokens for exclusive experiences and merch</p>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>}
-
-            <div id="join">
-                <Container className="py-5">
-                    <Row className='py-5 px-4'>
-                        <Col lg={{ span: 10, offset: 1 }} className="my-auto">
-                            <div>
-                                <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
-                                <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                <p className="mt-4" style={{ textAlign: "center", fontSize: "20px" }}>It's time to showcase your personality now.</p>
-                                <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>Create a KNAQ account in just a few minutes.</p>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
 
 
-
-            <Navbar bg="dark" variant="dark" style={{}} className="py-5">
+            <Navbar id='footer' bg="dark" variant="dark" style={{}} className="py-5">
                 <Row style={{ width: "100%" }} className="mx-0">
                     <Col xs={12} lg="auto">
                         <Nav className={isLarge ? "" : "flex-column"}>
