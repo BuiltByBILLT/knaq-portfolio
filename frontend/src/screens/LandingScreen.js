@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Alert, Button, Col, Container, Form, Image, InputGroup, Nav, Navbar, Row } from 'react-bootstrap'
+import { Accordion, Alert, Button, Card, Col, Container, Form, Image, InputGroup, Nav, Navbar, Row } from 'react-bootstrap'
 import StaticPage from '../components/StaticPage'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 import Logo from '../components/Logo'
 import useMediaQuery from '../hooks/useMediaQuery'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const LandingScreen = () => {
 
@@ -25,7 +26,7 @@ const LandingScreen = () => {
 
     return (
         <>
-            {true && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>{isLarge ? "Large" : isMedium ? "Medium" : "Small"}</div>}
+            {process.env.NODE_ENV == "development" && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>{isLarge ? "Large" : isMedium ? "Medium" : "Small"}</div>}
             <div id="hero" style={{ backgroundImage: "url('images/BG1.jpg')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }}>
                 {/* <Navbar> */}
 
@@ -148,7 +149,7 @@ const LandingScreen = () => {
                             <Col lg={{ span: 10, offset: 1 }} className="my-auto">
                                 <div>
                                     <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
+                                    <h1 className="mt-3" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
                                     <p className="my-4" style={{ textAlign: "center", fontSize: "20px" }}>Interact with your fans on a whole new level though easy to access channels where they can post commentary, fan art, and hot takes.</p>
                                 </div>
                             </Col>
@@ -224,7 +225,7 @@ const LandingScreen = () => {
                             <Col lg={{ span: 10, offset: 1 }} className="my-auto">
                                 <div>
                                     <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
+                                    <h1 className="mt-3" style={{ textAlign: "center", color: "var(--indigo)" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
                                     <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
                                     <p className="mt-4" style={{ textAlign: "center", fontSize: "20px" }}>It's time to showcase your personality now.</p>
                                     <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>Create a KNAQ account in just a few minutes.</p>
@@ -235,9 +236,66 @@ const LandingScreen = () => {
                 </div>
             </div>
 
+            <div id="bluefire" style={{ backgroundImage: "url('images/BG3.png')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", position: "relative" }}>
+                <Container className="px-5 pt-5" style={{ paddingBottom: "20vw" }}>
+                    <h1 className="py-4" style={{ textAlign: "center", color: "var(--tan)" }}>Frequently Asked Questions</h1>
+                    <Accordion defaultActiveKey="0" className="mx-lg-5 mb-4">
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="0">
+                                Why should I back-up my wallet?
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="0">
+                                <Card.Body>
+                                    Knaq is powered by blockchain and similar to all other Bitcoin, Ethereum, or crypto wallets, we are fully non-custodial and decentralized. This means we cannot touch your wallet and all the money you earn is fully in your control. But since we cannot access your wallet, we have no way of recovering funds. Simply write down your recovery phrase and keep it in a safe place in case you ever forget your password or lose your phone!
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="1">
+                                What crypto is inside the app?
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="1">
+                                <Card.Body>
+                                    We have built a way for you to deposit and withdraw any crypto from the list of supported ones. We will constantly be updating this list and making it more efficient for all of you.
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="2">
+                                How do I withdraw money from my wallet?
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="2">
+                                <Card.Body>
+                                    On the bottom navigation panel, go to the Wallet tab on the far right. From there, click on Send Money and paste in the destination where you want to send your money. When asked, select the crypto you want to withdraw and press send. Your transaction will be cleared once it has been confirmed on the blockchain you are trying to send to.
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                    </Accordion>
+                    <h3 className="py-4 " style={{ textAlign: "center", color: "var(--tan)" }}>Still Have Questions?</h3>
+                    <div className="d-flex justify-content-center">
+                        <a href="https://discord.gg/H4TAHRGNHR" target="_blank">
+                            <Button variant='secondary'
+                                style={{
+                                    borderRadius: "100px", height: "40px", border: "var(--tan), 2px, solid",
+                                    color: "var(--indigo)", backgroundColor: "var(--tan)"
+                                }}
+                                className="pl-4 pr-2 py-0 mt-2"
+                            >
+                                join the discord
+                                <img src="/icons/arrow_right_1.svg" style={{ height: "70%" }} className="pl-3" />
+                            </Button>
+                        </a>
+                    </div>
+                </Container>
+            </div>
 
+            {false && process.env.NODE_ENV == "development" && <div id="black" style={{ backgroundColor: "#000" }}>
+                <Container style={{ height: "1000px" }}>
 
-            <Navbar id='footer' bg="dark" variant="dark" style={{}} className="py-5">
+                </Container>
+            </div>}
+
+            <Navbar id='footer' bg="dark" variant="dark" style={{ marginTop: "-2px" }} className="py-5">
                 <Row style={{ width: "100%" }} className="mx-0">
                     <Col xs={12} lg="auto">
                         <Nav className={isLarge ? "" : "flex-column"}>

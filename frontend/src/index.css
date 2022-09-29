@@ -230,3 +230,41 @@ main {
   height:30px;
 }
 /* social icons end */
+
+/* blue fire background */
+#bluefire::after{
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  border-left:100vw solid #000;
+  border-top:20vw solid transparent;
+}
+/* blue fire background end */
+
+/* FAQ Accordion */
+
+.accordion{
+  color: var(--tan);
+  background-color: transparent !important;
+}
+.card{
+  background-color: transparent !important;
+  margin-top: 10px;
+}
+.accordion .card-header{
+  background-color: transparent !important;
+  font-weight: bold;
+  font-size: 18px;
+  border: var(--tan) 3px solid;
+  border-radius: 15px !important;
+  padding: 20px 40px
+}
+.accordion .card-body{
+  color: var(--indigo);
+  margin-top: 10px;
+  background-color: var(--tan);
+  border: none;
+  border-radius: 15px !important;
+  padding: 40px 40px
+}
+/* FAQ Accordion end */
