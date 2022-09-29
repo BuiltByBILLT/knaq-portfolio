@@ -9,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 const LandingScreen = () => {
 
+    const dev = process.env.NODE_ENV == "development"
     const [email, setEmail] = useState("")
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
@@ -26,7 +27,7 @@ const LandingScreen = () => {
 
     return (
         <>
-            {process.env.NODE_ENV == "development" && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>{isLarge ? "Large" : isMedium ? "Medium" : "Small"}</div>}
+            {dev && <div style={{ position: "fixed", top: 0, zIndex: 20 }}>{isLarge ? "Large" : isMedium ? "Medium" : "Small"}</div>}
             <div id="hero" style={{ backgroundImage: "url('images/BG1.jpg')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }}>
                 {/* <Navbar> */}
 
@@ -149,7 +150,7 @@ const LandingScreen = () => {
                             <Col lg={{ span: 10, offset: 1 }} className="my-auto">
                                 <div>
                                     <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <h1 className="mt-3" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
+                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Empower your community with seamless social tools</h1>
                                     <p className="my-4" style={{ textAlign: "center", fontSize: "20px" }}>Interact with your fans on a whole new level though easy to access channels where they can post commentary, fan art, and hot takes.</p>
                                 </div>
                             </Col>
@@ -225,7 +226,7 @@ const LandingScreen = () => {
                             <Col lg={{ span: 10, offset: 1 }} className="my-auto">
                                 <div>
                                     <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
-                                    <h1 className="mt-3" style={{ textAlign: "center", color: "var(--indigo)" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
+                                    <h1 className="mt-3 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>Join thousands of Creators and start connecting on KNAQ now</h1>
                                     <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
                                     <p className="mt-4" style={{ textAlign: "center", fontSize: "20px" }}>It's time to showcase your personality now.</p>
                                     <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>Create a KNAQ account in just a few minutes.</p>
@@ -237,7 +238,7 @@ const LandingScreen = () => {
             </div>
 
             <div id="bluefire" style={{ backgroundImage: "url('images/BG3.png')", backgroundSize: "100% 100%", backgroundRepeat: "no-repeat", position: "relative" }}>
-                <Container className="px-5 pt-5" style={{ paddingBottom: "20vw" }}>
+                <Container className="px-lg-5 pt-5" style={{ paddingBottom: "20vw" }}>
                     <h1 className="py-4" style={{ textAlign: "center", color: "var(--tan)" }}>Frequently Asked Questions</h1>
                     <Accordion defaultActiveKey="0" className="mx-lg-5 mb-4">
                         <Card>
@@ -271,7 +272,9 @@ const LandingScreen = () => {
                             </Accordion.Collapse>
                         </Card>
                     </Accordion>
-                    <h3 className="py-4 " style={{ textAlign: "center", color: "var(--tan)" }}>Still Have Questions?</h3>
+                    <h2 className="py-4 " style={{ textAlign: "center", color: "var(--tan)" }}>
+                        Still Have Questions?
+                    </h2>
                     <div className="d-flex justify-content-center">
                         <a href="https://discord.gg/H4TAHRGNHR" target="_blank">
                             <Button variant='secondary'
@@ -282,18 +285,56 @@ const LandingScreen = () => {
                                 className="pl-4 pr-2 py-0 mt-2"
                             >
                                 join the discord
-                                <img src="/icons/arrow_right_1.svg" style={{ height: "70%" }} className="pl-3" />
+                                <img src="/icons/arrow_right_2.svg" style={{ height: "70%" }} className="pl-3" />
                             </Button>
                         </a>
                     </div>
                 </Container>
             </div>
 
-            {false && process.env.NODE_ENV == "development" && <div id="black" style={{ backgroundColor: "#000" }}>
-                <Container style={{ height: "1000px" }}>
+            {dev && <div id="black" style={{ backgroundColor: "#000" }}>
+                <Container id="roadmap" className="pb-5">
+                    <h1 className={isMedium ? "ml-5" : "text-center"} style={{ color: "var(--tan)" }}>Roadmap</h1>
+                    <Row className="mx-0">
+                        <Col xs={12} lg={{ span: 5, offset: 0 }} className="mt-5">
+                            <div className="border-box" style={{ background: "linear-gradient(90deg, #f662a7, #ff0000)" }}>
+                                <p className="cover-box pl-4 pt-2">Phase I</p>
+                            </div>
+                            <div className="floater" style={{ background: "linear-gradient(90deg, #f662a7, #ff0000)" }}>
+                                <h3 className="pl-4 pt-2">spring launch</h3>
+                            </div>
+                        </Col>
+                        <Col xs={12} lg={{ span: 4, offset: 1 }} className="mt-5">
+                            <div className="text" style={{
+                                height: "150px", border: "red 2px solid", width: "100%",
+                            }}></div>
+                        </Col>
+                    </Row>
+                    <Row className="mx-0">
+                        <Col xs={12} lg={{ span: 5, offset: 1 }}>
+                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+                            </div>
+                        </Col>
+                        <Col xs={12} lg={{ span: 4, offset: 1 }}>
+                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
 
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row className="mx-0">
+                        <Col xs={12} lg={{ span: 5, offset: 2 }}>
+                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+
+                            </div>
+                        </Col>
+                        <Col xs={12} lg={{ span: 4, offset: 1 }}>
+                            <div className="mt-5" style={{ border: "red 1px solid", height: "150px", borderRadius: "15px" }}>
+
+                            </div>
+                        </Col>
+                    </Row>
                 </Container>
-            </div>}
+            </div >}
 
             <Navbar id='footer' bg="dark" variant="dark" style={{ marginTop: "-2px" }} className="py-5">
                 <Row style={{ width: "100%" }} className="mx-0">

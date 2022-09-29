@@ -236,7 +236,7 @@ main {
   content:'';
   position:absolute;
   bottom:0; left:0;
-  border-left:100vw solid #000;
+  border-left:calc(100vw - 20px) solid #000;
   border-top:20vw solid transparent;
 }
 /* blue fire background end */
@@ -268,3 +268,43 @@ main {
   padding: 40px 40px
 }
 /* FAQ Accordion end */
+
+/* roadmap */
+#roadmap h3{
+  color: #FFF;
+}
+#roadmap p{
+  color: #FFF;
+  font-size: 20px;
+  /* margin-left: 25px; */
+  /* padding-top: 25px; */
+}
+#roadmap .border-box{
+  height: 150px; 
+  border-radius: 15px; 
+  width: 100%; 
+  position: relative;
+  background-clip: padding-box;
+}
+#roadmap .cover-box{
+  position: absolute; 
+  height: 100%; 
+  width: 100%;
+  background-color: black; 
+  border-radius: 15px; 
+  border: transparent 3px solid;
+  background-clip: padding-box;
+}
+#roadmap .floater{
+  position: absolute;
+  bottom: 20px;
+  left: calc(15px + 25px);
+  height: 80px;
+  width: 90%;
+  z-Index: 10;
+  border-radius: 15px;
+  border: white 1px solid;
+}
+
+
+/* roadmap end */
