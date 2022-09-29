@@ -32,7 +32,7 @@ const LandingScreen = () => {
 
                 {/* <Navbar> */}
                 <Nav className="">
-                    <Nav.Link className="ml-3 mt-3" active={false} href="/"><img src="images/Logo-Full.png" style={{ width: "150px" }}></img></Nav.Link>
+                    <Nav.Link className="ml-3 mt-3" active={false} href="/"><img src="images/Logo-Full.png" style={{ width: isLarge ? "150px" : "100px" }}></img></Nav.Link>
                     <Nav.Link className="px-1 mt-3 ml-auto" active={false} target="_blank" href="https://discord.gg/H4TAHRGNHR"><img className="social-icons" src="./icons/discord_icon.png" /></Nav.Link>
                     <Nav.Link className="px-1 mt-3 " active={false} target="_blank" href="http://www.instagram.com/knaqapp"><img className="social-icons" src="./icons/instagram_icon.png" /></Nav.Link>
                     <Nav.Link className="px-1 mt-3 mr-3" active={false} target="_blank" href="http://www.twitter.com/knaqapp"><img className="social-icons" src="./icons/twitter_icon.png" /></Nav.Link>
@@ -44,7 +44,7 @@ const LandingScreen = () => {
                         <Col xs={12} lg={{ span: 10, offset: 1 }} className="my-auto">
                             <div>
                                 <h1 className="mt-lg-5 mx-auto" style={{ textAlign: "center", color: "var(--indigo)", maxWidth: "750px" }}>
-                                    The loyalty platform that rewards fans and strenthens communities
+                                    The loyalty platform that rewards fans and strengthens communities
                                 </h1>
                                 <p className="my-4 my-lg-5">Its about time fans get something in return!</p>
                                 {error && <Alert variant='danger'>{error}</Alert>}
@@ -123,14 +123,14 @@ const LandingScreen = () => {
                                 <div className="rombus rombus-left rombus-girl">
                                     <div className="pb-5 px-5 rombus-right flex-center" >
                                         <h1 className="mb-3 px-2">Engage to Earn Tokens</h1>
-                                        <p className="px-2">Earn tokens for every like, share, subscription, and much more!</p>
+                                        <p className="px-2">Earn tokens for every like, share, subscription, and much more</p>
                                     </div>
                                 </div>
                             </Col>
                             <Col xs={12} lg={4}>
                                 <div className="rombus rombus-right rombus-tokens">
                                     <div className="pb-5 px-5 rombus-left flex-center">
-                                        <h1 className="mb-3 px-2">More Loyalty = More Rewards</h1>
+                                        <h1 className="mb-3 px-2">More Engaged = More Rewards</h1>
                                         <p className="px-2">Increase your tier and unlock airdrops, NFTs, and other exciting bonuses</p>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ const LandingScreen = () => {
                                 Supercharging communities with Web3
                             </h1>
                             <p className="my-5" style={{ textAlign: "center", fontSize: "20px" }}>
-                                Scrolling through your feed will pay off in a big way
+                                Your every interaction will pay off in a big way.
                             </p>
                         </Col> </Row>
                     </Container>
@@ -232,10 +232,10 @@ const LandingScreen = () => {
                             </h1>
                             <hr style={{ width: "50%", height: "5px", background: "var(--indigo)" }} />
                             <p className="mt-5" style={{ textAlign: "center", fontSize: "20px" }}>
-                                Fandom is no longer a one way street!
+                                Fandom is no longer a one way street
                             </p>
-                            <p className="mb-4" style={{ textAlign: "center", fontSize: "20px" }}>
-                                Knaq bridges the gap and allows communities to earn and grow alongside their favorite creators
+                            <p className="mb-4" style={{ textAlign: "center", fontSize: "20px", maxWidth: "750px" }}>
+                                Knaq bridges the gap and allows communities to earn and grow alongside their favorite creators.
                             </p>
                         </Col></Row>
                     </Container>
