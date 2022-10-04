@@ -174,7 +174,7 @@ const LandingScreen = () => {
                                 }}>
                                     <div className="px-3 rombus-quad-inner d-flex flex-column" >
                                         <img src="icons/star_icon.svg" style={{ width: "40px" }} />
-                                        <h1 className="my-3">Exclusive Access</h1>
+                                        <h1 className="my-3">Exclusive</h1>
                                         <p>Access content you won't find anywhere else. Attend events only open for community members.</p>
 
                                     </div>
@@ -188,7 +188,7 @@ const LandingScreen = () => {
                                 }}>
                                     <div className="px-3 rombus-quad-inner d-flex flex-column">
                                         <img src="icons/chat_icon.svg" style={{ width: "40px" }} />
-                                        <h1 className="my-3">DM's & Group Chats</h1>
+                                        <h1 className="my-3">DM's & Groups</h1>
                                         <p>Chat directly with creators and community members that share your passion.</p>
                                     </div>
                                 </div>
@@ -248,9 +248,24 @@ const LandingScreen = () => {
                     <Accordion defaultActiveKey="0" className="mx-lg-5 mb-4">
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="0">
-                                How does earning work?
+                                How do I get started?
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
+                                <Card.Body>
+                                    <p className="">For Fans:</p>
+                                    <p className="">Log in with one of your existing social media accounts and we will automatically make a wallet for you.</p>
+                                    <p className="">If you already have a wallet like Metamask, simply log in with that.</p>
+                                    <p className="mt-3">For Creators</p>
+                                    <p className="">Log in with the social media or Metamask and we will begin populating your account with your existing social media posts.</p>
+                                    <p className="">From inside your profile you can upload exclusive videos and begin listing experiences you wish to offer your token holders.</p>
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="4">
+                                How does earning work?
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="4">
                                 <Card.Body>
                                     Every type of engagement on Knaq earns you tokens. You can check your earnings, airdrops, and other benefits directly from your wallet.
                                 </Card.Body>
