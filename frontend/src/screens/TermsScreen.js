@@ -12,12 +12,13 @@ const TermsScreen = () => {
                 <p></p>
                 <p><strong>1.</strong> <strong>Definitions</strong></p>
                 <p>In these Terms following terms have the following meanings:</p>
-                <p><strong>“BSV” </strong>is the Bitcoin SV Blockchain</p>
-                <p><strong>“BSV Tokens”</strong> are tokens issued on BSV and the method of payment used for Interactions.</p>
                 <p><strong>“Content Creator”</strong> is a User who uploads Content on the Website to be viewed by other Users;</p>
                 <p><strong>“Company”</strong> (also referred to as “<strong>the Company</strong>”, “<strong>Us</strong>”, “<strong>Our</strong>”, or “<strong>We</strong>”) refers to Knaq Technologies, Inc. located in the state of Delaware at 300 Delaware Avenue Suite 210-A, Wilmington, DE 19801;</p>
-                <p><strong>“Commission”</strong> is an amount of BSV Tokens paid by Viewers to the Content Creator for any Interaction;</p>
+                <p><strong>“Commission”</strong>  is an amount of value (in cash, cryptocurrencies, or otherwise) paid by Viewers to the
+                    Content Creator for any Interaction;</p>
                 <p><strong>“Interaction”</strong> is any offerings by a Content Creator that is hosted by Knaq where a Commission may be earned. This includes but is not limited to tips, subscriptions, referrals, and chats.</p>
+                <p><strong>Matic Tokens”</strong> are tokens issued on the Polygon Blockchain and a method of payment used for Interactions.</p>
+                <p><strong>Polygon”</strong> is the Polygon Blockchain;</p>
                 <p><strong>“Post” </strong>(or “Posting”) is any and all text, photos, videos, or other material uploaded to the Website by a Content Creator;</p>
                 <p><strong>“Referral Bonus”</strong> is the payment made by the Company to Users who introduce new Users to the Service;</p>
                 <p><strong>“Revenue”</strong> the monies paid by a Viewer to the Company for when an Interaction occurs;</p>
@@ -40,7 +41,10 @@ const TermsScreen = () => {
                 <p><strong>3. User Account Registration</strong></p>
                 <p>To become a User, you must register and create a User Account on Knaq. You must provide a valid phone number or email address, a username, and a password.</p>
                 <p>You agree that all the information you provided is governed by the Company’s Privacy Policy and you proceed on the basis that you are aware of how and why we may process your personal data as set forth in the Privacy Policy.</p>
-                <p>If you wish to have Interactions with a Content Creator, then you will need to acquire BSV Tokens or Knaq Feathers and deposit them into your wallet that is built into Knaq. Knaq may recommend various methods of acquiring BSV Tokens but you acknowledge that neither Knaq, the Company, or its employees are liable for any activity that occurs outside of the Knaq App and website at Knaqapp.com.</p>
+                <p>If you wish to have Interactions with a Content Creator, then you will need to acquire Matic Tokens and
+                    deposit them into your wallet that is built into Knaq. Knaq may recommend various methods of
+                    acquiring Matic Tokens but you acknowledge that neither Knaq, the Company, or its employees are
+                    liable for any activity that occurs outside of the Knaq app and website at Knaqme.io. </p>
                 <p></p>
                 <p><strong>4. Account Deactivation</strong></p>
                 <p>In the event you wish to deactivate your Knaq account, you may email us at <span >support@knaqapp.com</span>. You acknowledge that upon deactivation, Knaq will remove any Posts you have made subject to section 4.1 of this document as well as cancel any subscriptions that are currently still active.</p>
@@ -76,13 +80,26 @@ const TermsScreen = () => {
                 <p>(f) The Company is not liable to any third party for the content or accuracy of any Posts uploaded by you or any User of the Service.</p>
                 <p>(g) Upon signing up to the Service, you agree to act as custodian of records for the material you upload to the Service.</p>
                 <p></p>
-                <p><strong>7. Bitcoin SV Blockchain</strong></p>
-                <p>7.1 The Service contains software to assist users in writing data onto BSV and to also display such content from BSV onto the Site.</p>
+                <p><strong>7. Polygon Blockchain</strong></p>
+                <p>7.1 The Service contains software to assist users in writing data onto Polygon and to also display such content from Polygon onto the Site. This data may include, but is not limited to, transaction histories, images stored as NFTs, and other Interactions that may carry monetary value.</p>
                 <p>7.2 The Service incorporates monetary incentives into the Site whereby you are able to receive Commission for your Posts through Interactions with other Users. The Company receives a percent of all Commissions.</p>
-                <p>7.3 BSV is not owned, controlled, or operated by the Company. We have no control over the BSV blockchain. All Posts made via the Service are stored on the BSV blockchain, a public ledger of information. The Service serves to display these posts from the BSV blockchain and therefore we cannot delete or alter any information on the BSV blockchain on your behalf. You acknowledge that by submitting content to the Service, you are also submitting to the BSV blockchain. While we can remove your Posts from appearing on the Service, we cannot alter or remove your post from the BSV blockchain. Your post will be stored there for as long as related data hosting services hold it.</p>
+                <p>7.3  Polygon is not owned, controlled, or operated by the Company. We have no control over the
+                    Polygon blockchain and its development. All transactions made via the Service are stored on the Polygon
+                    blockchain, a public ledger. The Service serves to display these transactions from the Polygon blockchain
+                    and therefore we cannot delete or alter any information on the Polygon blockchain on your behalf. You
+                    acknowledge that by submitting transactions to the Service, you are also submitting to the Polygon
+                    blockchain. While we can remove your transactions from appearing on the Service, we cannot alter or
+                    remove any transaction history from the Polygon blockchain. </p>
                 <p></p>
                 <p><strong>8. Non-Custodial</strong></p>
-                <p>The Service provides a non-custodial wallet, which means We do not store or have access to your wallet whereby cryptocurrencies or monies are transacted or stored. No monies flow through the Company or the Service. We do not hold or custody your private key and we assume no responsibility for the management of your private keys tied to your User Account. We do not store, send, or receive BSV or other monies between users. The only money we receive is the Revenue we earn from Interactions which is paid to us by the User and similar blockchain wallet services or by any future blockchain protocol that we might use. Any transfer of title that might occur on the BSV blockchain, occurs on the blockchain and not within Knaq. We do not guarantee that BSV can affect the transfer of title or rights in any cryptocurrency.</p>
+                <p>The Service provides a non-custodial wallet, which means We do not store or have access to your wallet
+                    whereby cryptocurrencies or monies are transacted or stored. No monies flow through the Company or
+                    the Service. We do not hold or custody your private key and we assume no responsibility for the
+                    management of your private keys tied to your User Account. We do not store, send, or receive Matic or
+                    other monies between users. The only money we receive is the Revenue we earn from Interactions
+                    which is paid to us by the User and similar blockchain wallet services or by any future blockchain
+                    protocol that we might use. Any transfer of title that might occur on the Polygon blockchain, occurs on
+                    the blockchain and not within Knaq. </p>
                 <p>There are risks associated with using cryptocurrencies and blockchains, and you accept and acknowledge these risks.</p>
                 <p></p>
                 <p><strong>9. Copyright Complaints, the DMCA, and Takedowns</strong></p>
