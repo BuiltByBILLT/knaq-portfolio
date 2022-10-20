@@ -19,6 +19,8 @@ import PrivacyScreen from "./screens/PrivacyScreen";
 import TermsScreen from "./screens/TermsScreen";
 import FaqScreen from "./screens/FaqScreen";
 import LandingScreen from "./screens/LandingScreen";
+import MarketScreen from "./screens/MarketScreen";
+import CreatorScreen from "./screens/CreatorScreen";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,6 +33,8 @@ function App() {
           <Route path="/" exact component={LandingScreen} />
           <Route path="/landing" exact component={LandingScreen} />
           <Route path="/promo" exact component={PromoScreen} />
+          <Route path="/creator" exact component={CreatorScreen} />
+          <Route path="/market" exact component={MarketScreen} />
           {/* <ProtectedRoute path="/" exact component={Home} /> */}
           <Route path="/home" exact component={HomeScreen} />
           <Route path="/privacy" exact component={PrivacyScreen} />

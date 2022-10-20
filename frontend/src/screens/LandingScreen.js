@@ -376,6 +376,8 @@ const LandingScreen = () => {
                             <Nav.Link className="mx-lg-2" active={false} target="_blank" href="/faq">FAQs</Nav.Link>
                             <Nav.Link className="mx-lg-2" active={false} target="_blank" href="/terms">Terms</Nav.Link>
                             <Nav.Link className="mx-lg-2" active={false} target="_blank" href="/privacy">Privacy</Nav.Link>
+                            <Nav.Link className="mx-lg-2" active={false} href="/creator">Creators</Nav.Link>
+                            <Nav.Link className="mx-lg-2" active={false} href="/market">Market</Nav.Link>
                         </Nav>
                     </Col>
                     <Col xs={12} lg="auto" className="ml-auto">

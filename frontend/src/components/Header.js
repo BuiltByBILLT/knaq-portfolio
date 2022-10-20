@@ -25,6 +25,8 @@ export const Header = () => {
     if (location.pathname === "/") return null
     if (location.pathname === "/promo") return null
     if (location.pathname === "/landing") return null
+    if (location.pathname === "/market") return null
+    if (location.pathname === "/creator") return null
 
     if (location.pathname === "/login") return null
     if (location.pathname === "/forgot") return null
