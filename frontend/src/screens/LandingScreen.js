@@ -104,7 +104,12 @@ const LandingScreen = () => {
                     </Container>
                 </Row>
 
-                <Container id="blue" className='pb-5 px-0' style={{ color: "var(--tan)", position: "relative" }}>
+                <Container id="iPad">
+                    <img src="/images/Knaq-iPad-Marketplace.png"
+                        style={{ width: "100%" }} />
+                </Container>
+
+                <Container id="blue" className='py-5 px-0' style={{ color: "var(--tan)", position: "relative" }}>
                     <>
                         {isLarge && <div id="arrow layer" className='pb-5' style={{ position: "absolute", width: "100%", height: "100%", zIndex: 10 }}>
                             <Row className="mx-0" style={{ height: "100%" }}>
